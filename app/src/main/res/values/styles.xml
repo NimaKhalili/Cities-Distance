@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    //---------------------->all
+    <style name="WidthHeight.All.BothMatchParent" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="WidthHeight.All.BothWrapContent" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="WidthHeight.All.MatchParentWrapContent" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="WidthHeight.All.BothZero" parent="">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="Guideline.All.Horizontal" parent="WidthHeight.All.BothWrapContent">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="Guideline.All.Vertical" parent="WidthHeight.All.BothWrapContent">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Guideline.All.TopParent" parent="Guideline.All.Horizontal">
+        <item name="layout_constraintGuide_percent">0.04</item>
+    </style>
+
+    <style name="Guideline.All.BottomParent" parent="Guideline.All.Horizontal">
+        <item name="layout_constraintGuide_percent">0.96</item>
+    </style>
+
+    <style name="Guideline.All.LeftParent" parent="Guideline.All.Vertical">
+        <item name="layout_constraintGuide_percent">0.92</item>
+    </style>
+
+    <style name="Guideline.All.RightParent" parent="Guideline.All.Vertical">
+        <item name="layout_constraintGuide_percent">0.08</item>
+    </style>
+
+    //---------------------->default
+    <style name="BaseTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+    </style>
+
+    //---------------------->activity_main.xml
+    <style name="Guideline.Main.TopBeginning" parent="Guideline.All.Horizontal">
+        <item name="layout_constraintGuide_percent">0.07</item>
+    </style>
+
+    <style name="Guideline.Main.BottomBeginning" parent="Guideline.All.Horizontal">
+        <item name="layout_constraintGuide_percent">0.14</item>
+    </style>
+
+    <style name="Guideline.Main.TopDestination" parent="Guideline.All.Horizontal">
+        <item name="layout_constraintGuide_percent">0.20</item>
+    </style>
+
+    <style name="Guideline.Main.BottomDestination" parent="Guideline.All.Horizontal">
+        <item name="layout_constraintGuide_percent">0.27</item>
+    </style>
+
+    <style name="Guideline.Main.TopDistanceCalculate" parent="Guideline.All.Horizontal">
+        <item name="layout_constraintGuide_percent">0.35</item>
+    </style>
+
+    <style name="Guideline.Main.BottomDistanceCalculate" parent="Guideline.All.Horizontal">
+        <item name="layout_constraintGuide_percent">0.43</item>
+    </style>
+
+    <style name="Guideline.Main.LeftDistanceCalculate" parent="Guideline.All.Vertical">
+        <item name="layout_constraintGuide_percent">0.30</item>
+    </style>
+
+    <style name="Guideline.Main.RightDistanceCalculate" parent="Guideline.All.Vertical">
+        <item name="layout_constraintGuide_percent">0.70</item>
+    </style>
+
+    <style name="TextInputLayout.Main.All" parent="WidthHeight.All.BothZero">
+        <item name="layout_constraintStart_toStartOf">@id/guideline_main_leftParent</item>
+        <item name="layout_constraintEnd_toEndOf">@id/guideline_main_rightParent</item>
+    </style>
+
+    <style name="TextInputLayout.Main.Beginning" parent="TextInputLayout.Main.All">
+        <item name="layout_constraintTop_toTopOf">@id/guideline_main_topBeginning</item>
+        <item name="layout_constraintBottom_toBottomOf">@id/guideline_main_bottomBeginning</item>
+        <item name="endIconDrawable">@drawable/ic_expand_more</item>
+        <item name="endIconMode">custom</item>
+    </style>
+
+    <style name="TextInputLayout.Main.Destination" parent="TextInputLayout.Main.All">
+        <item name="layout_constraintTop_toTopOf">@id/guideline_main_topDestination</item>
+        <item name="layout_constraintBottom_toBottomOf">@id/guideline_main_bottomDestination</item>
+        <item name="endIconDrawable">@drawable/ic_expand_more</item>
+        <item name="endIconMode">custom</item>
+    </style>
+
+    <style name="TextInputEditText.Main.All" parent="WidthHeight.All.BothMatchParent">
+    </style>
+
+    <style name="TextInputEditText.Main.Beginning" parent="TextInputEditText.Main.All">
+        <item name="android:hint">مبدأ</item>
+    </style>
+
+    <style name="TextInputEditText.Main.Destination" parent="TextInputEditText.Main.All">
+        <item name="android:hint">مقصد</item>
+    </style>
+
+    <style name="Button.Main.DistanceCalculate" parent="WidthHeight.All.BothZero">
+        <item name="android:text">محاسبه مسافت</item>
+        <item name="layout_constraintStart_toStartOf">@id/guideline_main_leftDistanceCalculate</item>
+        <item name="layout_constraintEnd_toEndOf">@id/guideline_main_rightDistanceCalculate</item>
+        <item name="layout_constraintTop_toTopOf">@id/guideline_main_topDistanceCalculate</item>
+        <item name="layout_constraintBottom_toBottomOf">@+id/guideline_main_bottomDistanceCalculate</item>
+    </style>
+
+</resources>

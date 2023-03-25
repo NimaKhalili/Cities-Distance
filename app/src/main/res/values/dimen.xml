@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    //---------------------->ic_expand_more.xml
+    <dimen name="height_icExpandMore">24dp</dimen>
+    <dimen name="width_icExpandMore">24dp</dimen>
+
+</resources>

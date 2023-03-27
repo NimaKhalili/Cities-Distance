@@ -101,6 +101,7 @@
     </style>
 
     <style name="TextInputEditText.Main.All" parent="WidthHeight.All.BothMatchParent">
+        <item name="android:textAppearance">@style/TextAppearance.MyTheme.Headline1</item>
     </style>
 
     <style name="TextInputEditText.Main.Beginning" parent="TextInputEditText.Main.All">
@@ -113,6 +114,7 @@
 
     <style name="Button.Main.DistanceCalculate" parent="WidthHeight.All.BothZero">
         <item name="android:text">محاسبه مسافت</item>
+        <item name="android:textAppearance">@style/TextAppearance.MyTheme.Headline1</item>
         <item name="layout_constraintStart_toStartOf">@id/guideline_main_leftDistanceCalculate</item>
         <item name="layout_constraintEnd_toEndOf">@id/guideline_main_rightDistanceCalculate</item>
         <item name="layout_constraintTop_toTopOf">@id/guideline_main_topDistanceCalculate</item>

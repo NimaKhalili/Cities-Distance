@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    //---------------------->type.xml
+    <dimen name="textSizeTextAppearance_myTheme_headline1">22sp</dimen>
+
+    //---------------------->ic_expand_more.xml
+    <dimen name="height_icExpandMore">32dp</dimen>
+    <dimen name="width_icExpandMore">32dp</dimen>
+
+</resources>

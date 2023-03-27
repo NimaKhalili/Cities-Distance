@@ -48,6 +48,8 @@
 
     //---------------------->default
     <style name="BaseTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="endIconDrawable">@drawable/ic_expand_more</item>
+        <item name="endIconMode">custom</item>
     </style>
 
     //---------------------->activity_main.xml
@@ -91,15 +93,11 @@
     <style name="TextInputLayout.Main.Beginning" parent="TextInputLayout.Main.All">
         <item name="layout_constraintTop_toTopOf">@id/guideline_main_topBeginning</item>
         <item name="layout_constraintBottom_toBottomOf">@id/guideline_main_bottomBeginning</item>
-        <item name="endIconDrawable">@drawable/ic_expand_more</item>
-        <item name="endIconMode">custom</item>
     </style>
 
     <style name="TextInputLayout.Main.Destination" parent="TextInputLayout.Main.All">
         <item name="layout_constraintTop_toTopOf">@id/guideline_main_topDestination</item>
         <item name="layout_constraintBottom_toBottomOf">@id/guideline_main_bottomDestination</item>
-        <item name="endIconDrawable">@drawable/ic_expand_more</item>
-        <item name="endIconMode">custom</item>
     </style>
 
     <style name="TextInputEditText.Main.All" parent="WidthHeight.All.BothMatchParent">

@@ -1,15 +1,15 @@
-package com.example.citiesdistance
+package com.example.citiesdistance.common
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
-abstract class BaseFragment : Fragment(), BaseView{
+abstract class BaseFragment : Fragment(), BaseView {
     override fun setProgressIndicator(mustShow: Boolean) {
         TODO("Not yet implemented")
     }
 }
 
-abstract class BaseActivity : AppCompatActivity(), BaseView{
+abstract class BaseActivity : AppCompatActivity(), BaseView {
     override fun setProgressIndicator(mustShow: Boolean) {
         TODO("Not yet implemented")
     }

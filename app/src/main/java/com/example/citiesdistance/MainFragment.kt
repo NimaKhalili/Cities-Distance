@@ -1,4 +1,6 @@
 package com.example.citiesdistance
 
-class MainFragment:BaseFragment() {
+import com.example.citiesdistance.common.BaseFragment
+
+class MainFragment: BaseFragment() {
 }

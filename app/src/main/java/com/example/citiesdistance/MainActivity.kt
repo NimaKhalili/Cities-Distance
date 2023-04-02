@@ -1,6 +1,7 @@
 package com.example.citiesdistance
 
 import android.os.Bundle
+import com.example.citiesdistance.common.BaseActivity
 
 class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

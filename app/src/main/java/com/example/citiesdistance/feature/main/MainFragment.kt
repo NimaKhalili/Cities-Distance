@@ -1,4 +1,4 @@
-package com.example.citiesdistance
+package com.example.citiesdistance.feature.main
 
 import com.example.citiesdistance.common.BaseFragment
 

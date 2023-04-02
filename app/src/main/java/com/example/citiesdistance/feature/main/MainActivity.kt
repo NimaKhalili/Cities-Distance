@@ -1,6 +1,7 @@
-package com.example.citiesdistance
+package com.example.citiesdistance.feature.main
 
 import android.os.Bundle
+import com.example.citiesdistance.R
 import com.example.citiesdistance.common.BaseActivity
 
 class MainActivity : BaseActivity() {

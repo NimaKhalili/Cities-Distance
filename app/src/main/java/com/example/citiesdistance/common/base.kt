@@ -2,6 +2,8 @@ package com.example.citiesdistance.common
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
+import io.reactivex.disposables.CompositeDisposable
 
 abstract class BaseFragment : Fragment(), BaseView {
     override fun setProgressIndicator(mustShow: Boolean) {
@@ -19,4 +21,10 @@ interface BaseView {
     fun setProgressIndicator(mustShow: Boolean)
 }
 
-abstract class BaseViewModel
+abstract class BaseViewModel:ViewModel(){
+    val compositeDisposable = CompositeDisposable()
+    override fun onCleared() {
+        compositeDisposable.clear()
+        super.onCleared()
+    }
+}

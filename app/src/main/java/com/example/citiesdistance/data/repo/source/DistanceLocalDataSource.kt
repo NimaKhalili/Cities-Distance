@@ -1,10 +1,10 @@
 package com.example.citiesdistance.data.repo.source
 
-import com.example.citiesdistance.data.Distance
+import com.google.gson.JsonElement
 import io.reactivex.Single
 
 class DistanceLocalDataSource:DistanceDataSource {
-    override fun distanceCalculate(url: String, mabda: String, maghsad: String): Single<Distance> {
+    override fun getDistance(mabda: String, maghsad: String): Single<JsonElement> {
         TODO("Not yet implemented")
     }
 }

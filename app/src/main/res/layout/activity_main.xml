@@ -1,93 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".feature.main.MainActivity">
-    
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_main_topParent"
-        style="@style/Guideline.All.TopParent" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_main_bottomParent"
-        style="@style/Guideline.All.BottomParent" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_main_leftParent"
-        style="@style/Guideline.All.LeftParent"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_main_rightParent"
-        style="@style/Guideline.All.RightParent"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_main_topBeginning"
-        style="@style/Guideline.Main.TopBeginning" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_main_bottomBeginning"
-        style="@style/Guideline.Main.BottomBeginning" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_main_topDestination"
-        style="@style/Guideline.Main.TopDestination" />
-
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_main_bottomDestination"
-        style="@style/Guideline.Main.BottomDestination" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_main_topDistanceCalculate"
-        style="@style/Guideline.Main.TopDistanceCalculate" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_main_bottomDistanceCalculate"
-        style="@style/Guideline.Main.BottomDistanceCalculate" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_main_rightDistanceCalculate"
-        style="@style/Guideline.Main.LeftDistanceCalculate" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_main_leftDistanceCalculate"
-        style="@style/Guideline.Main.RightDistanceCalculate" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout_main_beginning"
-        style="@style/TextInputLayout.Main.Beginning"
-        >
-        
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText_main_beginning"
-            style="@style/TextInputEditText.Main.Beginning"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout_main_destination"
-        style="@style/TextInputLayout.Main.Destination"
-        >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText_main_destination"
-            style="@style/TextInputEditText.Main.Destination"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_main_distanceCalculate"
-        style="@style/Button.Main.DistanceCalculate"
-        />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainer"
+        android:name="com.example.citiesdistance.feature.main.MainFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.example.citiesdistance.feature.main.MainFragment"
-        tools:layout="@layout/fragment_main"
-        />
+        tools:layout="@layout/fragment_main" />
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,11 +10,11 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 
-class MainViewModel(distanceRepository: DistanceRepository) : BaseViewModel() {
+class MainViewModel(private val distanceRepository: DistanceRepository) : BaseViewModel() {
     val distanceLiveData = MutableLiveData<JsonElement>()
 
-    init {
-        distanceRepository.getDistance("قزوین", "تهران")
+    fun getDistance(beginning: String, destination: String) {
+        distanceRepository.getDistance(beginning, destination)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : SingleObserver<JsonElement> {

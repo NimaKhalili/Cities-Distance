@@ -14,11 +14,10 @@ import org.koin.core.context.startKoin
 import org.koin.dsl.module
 import timber.log.Timber
 
-
 class App : Application() {
     override fun onCreate() {
         super.onCreate()
-        Timber.plant()
+        Timber.plant(Timber.DebugTree())
 
         val myModules = module {
             single<ApiService> { createApiServiceInstance() }

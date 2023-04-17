@@ -2,10 +2,15 @@ package com.example.citiesdistance.feature.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
+import com.example.citiesdistance.R
 import com.example.citiesdistance.common.BaseFragment
 import com.example.citiesdistance.databinding.FragmentMainBinding
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
@@ -13,6 +18,7 @@ class MainFragment : BaseFragment() {
     private val mainViewModel: MainViewModel by viewModel()
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
+    private var citiesArrayList: ArrayList<String>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,8 +32,11 @@ class MainFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        citiesArrayList = ArrayList<String>(listOf(*resources.getStringArray(R.array.citiesList)))
 
         prepareMainViewModel()
+        prepareTextInputLayoutMainBeginning()
+        prepareTextInputLayoutMainDestination()
         prepareButtonMainDistanceCalculateOnClick()
     }
 
@@ -37,6 +46,37 @@ class MainFragment : BaseFragment() {
             val destination = binding.textInputEditTextMainDestination.text.toString()
             mainViewModel.getDistance(beginning, destination)
         }
+    }
+
+    private fun prepareTextInputLayoutMainDestination() {
+        binding.textInputLayoutMainDestination.setEndIconOnClickListener {
+            preparePopupMenu(
+                binding.textInputLayoutMainDestination,
+                binding.textInputEditTextMainDestination
+            )
+        }
+    }
+
+    private fun prepareTextInputLayoutMainBeginning() {
+        binding.textInputLayoutMainBeginning.setEndIconOnClickListener {
+            preparePopupMenu(
+                binding.textInputLayoutMainBeginning,
+                binding.textInputEditTextMainBeginning
+            )
+        }
+    }
+
+    private fun preparePopupMenu(
+        textInputLayout: TextInputLayout,
+        textInputEditText: TextInputEditText
+    ) {
+        val popupMenu = PopupMenu(context, textInputLayout)
+        citiesArrayList?.forEach { city -> popupMenu.menu.add(Menu.NONE, 1, Menu.NONE, city) }
+        popupMenu.setOnMenuItemClickListener { item ->
+            textInputEditText.setText(item.toString())
+            true
+        }
+        popupMenu.show()
     }
 
     private fun prepareMainViewModel() {

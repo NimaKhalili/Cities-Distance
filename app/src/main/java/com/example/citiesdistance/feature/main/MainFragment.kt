@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
+import android.widget.Toast
 import com.example.citiesdistance.R
 import com.example.citiesdistance.common.BaseFragment
 import com.example.citiesdistance.databinding.FragmentMainBinding
@@ -44,7 +45,9 @@ class MainFragment : BaseFragment() {
         binding.buttonMainDistanceCalculate.setOnClickListener {
             val beginning = binding.textInputEditTextMainBeginning.text.toString()
             val destination = binding.textInputEditTextMainDestination.text.toString()
-            mainViewModel.getDistance(beginning, destination)
+            if (beginning != destination) mainViewModel.getDistance(beginning, destination)
+            else
+                Toast.makeText(context, "امکان محاسبه دو شهر مشابه وجود ندارد", Toast.LENGTH_SHORT).show()
         }
     }
 

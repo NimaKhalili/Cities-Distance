@@ -58,8 +58,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditText_main_beginning"
-            style="@style/TextInputEditText.Main.Beginning"
-            android:text="قزوین" />
+            style="@style/TextInputEditText.Main.Beginning" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,8 +68,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditText_main_destination"
-            style="@style/TextInputEditText.Main.Destination"
-            android:text="تهران" />
+            style="@style/TextInputEditText.Main.Destination" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

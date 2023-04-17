@@ -3,6 +3,7 @@
 
     <style name="TextAppearance.MyTheme.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
         <item name="android:textSize">@dimen/textSizeTextAppearance_myTheme_headline1</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="TextAppearance.MyTheme.Headline2" parent="TextAppearance.MaterialComponents.Headline2">

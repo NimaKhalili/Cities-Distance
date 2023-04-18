@@ -45,10 +45,19 @@ class MainFragment : BaseFragment() {
         binding.buttonMainDistanceCalculate.setOnClickListener {
             val beginning = binding.textInputEditTextMainBeginning.text.toString()
             val destination = binding.textInputEditTextMainDestination.text.toString()
-            if (beginning != destination) mainViewModel.getDistance(beginning, destination)
-            else
-                Toast.makeText(context, "امکان محاسبه دو شهر مشابه وجود ندارد", Toast.LENGTH_SHORT).show()
+            if (beginning.isNotEmpty() && destination.isNotEmpty()) {
+                getDistanceCalculate(beginning, destination)
+            }else{
+                Toast.makeText(context, "لطفا هر دو گزینه را پر کنید", Toast.LENGTH_SHORT).show()
+            }
         }
+    }
+
+    private fun getDistanceCalculate(beginning: String, destination: String) {
+        if (beginning != destination)
+            mainViewModel.getDistance(beginning, destination)
+        else
+            Toast.makeText(context, "امکان محاسبه دو شهر مشابه وجود ندارد", Toast.LENGTH_SHORT).show()
     }
 
     private fun prepareTextInputLayoutMainDestination() {

@@ -58,23 +58,23 @@
     </style>
 
     <style name="Guideline.Main.BottomBeginning" parent="Guideline.All.Horizontal">
-        <item name="layout_constraintGuide_percent">0.14</item>
+        <item name="layout_constraintGuide_percent">0.16</item>
     </style>
 
     <style name="Guideline.Main.TopDestination" parent="Guideline.All.Horizontal">
-        <item name="layout_constraintGuide_percent">0.20</item>
+        <item name="layout_constraintGuide_percent">0.21</item>
     </style>
 
     <style name="Guideline.Main.BottomDestination" parent="Guideline.All.Horizontal">
-        <item name="layout_constraintGuide_percent">0.27</item>
+        <item name="layout_constraintGuide_percent">0.30</item>
     </style>
 
     <style name="Guideline.Main.TopDistanceCalculate" parent="Guideline.All.Horizontal">
-        <item name="layout_constraintGuide_percent">0.35</item>
+        <item name="layout_constraintGuide_percent">0.39</item>
     </style>
 
     <style name="Guideline.Main.BottomDistanceCalculate" parent="Guideline.All.Horizontal">
-        <item name="layout_constraintGuide_percent">0.43</item>
+        <item name="layout_constraintGuide_percent">0.49</item>
     </style>
 
     <style name="Guideline.Main.LeftDistanceCalculate" parent="Guideline.All.Vertical">
@@ -86,11 +86,11 @@
     </style>
 
     <style name="Guideline.Main.TopDistanceShow" parent="Guideline.All.Horizontal">
-        <item name="layout_constraintGuide_percent">0.55</item>
+        <item name="layout_constraintGuide_percent">0.57</item>
     </style>
 
     <style name="Guideline.Main.BottomDistanceShow" parent="Guideline.All.Horizontal">
-        <item name="layout_constraintGuide_percent">0.62</item>
+        <item name="layout_constraintGuide_percent">0.64</item>
     </style>
 
     <style name="TextInputLayout.Main.All" parent="WidthHeight.All.BothZero">

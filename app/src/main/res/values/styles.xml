@@ -85,6 +85,14 @@
         <item name="layout_constraintGuide_percent">0.70</item>
     </style>
 
+    <style name="Guideline.Main.TopDistanceShow" parent="Guideline.All.Horizontal">
+        <item name="layout_constraintGuide_percent">0.55</item>
+    </style>
+
+    <style name="Guideline.Main.BottomDistanceShow" parent="Guideline.All.Horizontal">
+        <item name="layout_constraintGuide_percent">0.62</item>
+    </style>
+
     <style name="TextInputLayout.Main.All" parent="WidthHeight.All.BothZero">
         <item name="layout_constraintStart_toStartOf">@id/guideline_main_leftParent</item>
         <item name="layout_constraintEnd_toEndOf">@id/guideline_main_rightParent</item>
@@ -125,4 +133,12 @@
         <item name="layout_constraintBottom_toBottomOf">@+id/guideline_main_bottomDistanceCalculate</item>
     </style>
 
+    <style name="TextView.Main.DistanceShow" parent="WidthHeight.All.BothZero">
+        <item name="android:textAppearance">?textAppearanceHeadline5</item>
+        <item name="layout_constraintStart_toStartOf">@id/guideline_main_leftParent</item>
+        <item name="layout_constraintEnd_toEndOf">@id/guideline_main_rightParent</item>
+        <item name="layout_constraintTop_toTopOf">@id/guideline_main_topDistanceShow</item>
+        <item name="layout_constraintBottom_toBottomOf">@+id/guideline_main_bottomDistanceShow</item>
+        <item name="android:textAlignment">center</item>
+    </style>
 </resources>

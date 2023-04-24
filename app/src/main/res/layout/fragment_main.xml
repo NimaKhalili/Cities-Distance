@@ -52,6 +52,14 @@
         android:id="@+id/guideline_main_leftDistanceCalculate"
         style="@style/Guideline.Main.RightDistanceCalculate" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_main_topDistanceShow"
+        style="@style/Guideline.Main.TopDistanceShow" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_main_bottomDistanceShow"
+        style="@style/Guideline.Main.BottomDistanceShow" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout_main_beginning"
         style="@style/TextInputLayout.Main.Beginning">
@@ -75,5 +83,10 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_main_distanceCalculate"
         style="@style/Button.Main.DistanceCalculate" />
+
+    <TextView
+        android:id="@+id/textView_main_distanceShow"
+        style="@style/TextView.Main.DistanceShow"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

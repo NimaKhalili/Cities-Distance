@@ -13,7 +13,6 @@ import com.example.citiesdistance.databinding.FragmentMainBinding
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import timber.log.Timber
 
 class MainFragment : BaseFragment() {
     private val mainViewModel: MainViewModel by viewModel()
@@ -93,7 +92,7 @@ class MainFragment : BaseFragment() {
 
     private fun prepareMainViewModel() {
         mainViewModel.distanceLiveData.observe(viewLifecycleOwner) {
-            Timber.i("Distance Calculate : $it")
+            binding.textViewMainDistanceShow.text = "$it کیلومتر"
         }
     }
 

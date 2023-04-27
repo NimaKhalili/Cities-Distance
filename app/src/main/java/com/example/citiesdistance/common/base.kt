@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.children
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.citiesdistance.R
 import io.reactivex.disposables.CompositeDisposable
@@ -67,6 +68,7 @@ interface BaseView {
 
 abstract class BaseViewModel : ViewModel() {
     val compositeDisposable = CompositeDisposable()
+    val progressDialogLiveData = MutableLiveData<Boolean>()
     override fun onCleared() {
         compositeDisposable.clear()
         super.onCleared()

@@ -94,6 +94,10 @@ class MainFragment : BaseFragment() {
         mainViewModel.distanceLiveData.observe(viewLifecycleOwner) {
             binding.textViewMainDistanceShow.text = "$it کیلومتر"
         }
+
+        mainViewModel.progressDialogLiveData.observe(viewLifecycleOwner){
+            setProgressIndicator(it)
+        }
     }
 
     override fun onDestroyView() {

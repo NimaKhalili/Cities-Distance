@@ -142,4 +142,12 @@
         <item name="layout_constraintBottom_toBottomOf">@+id/guideline_main_bottomDistanceShow</item>
         <item name="android:textAlignment">center</item>
     </style>
+
+    <style name="ProgressBar.Main.DistanceShow" parent="WidthHeight.All.BothZero">
+        <item name="layout_constraintStart_toStartOf">@id/guideline_main_leftParent</item>
+        <item name="layout_constraintEnd_toEndOf">@id/guideline_main_rightParent</item>
+        <item name="layout_constraintTop_toTopOf">@id/guideline_main_topDistanceShow</item>
+        <item name="layout_constraintBottom_toBottomOf">@+id/guideline_main_bottomDistanceShow</item>
+        <item name="android:visibility">invisible</item>
+    </style>
 </resources>

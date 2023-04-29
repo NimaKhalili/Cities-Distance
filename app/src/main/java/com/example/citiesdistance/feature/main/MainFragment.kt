@@ -95,8 +95,11 @@ class MainFragment : BaseFragment() {
             binding.textViewMainDistanceShow.text = "$it کیلومتر"
         }
 
-        mainViewModel.progressDialogLiveData.observe(viewLifecycleOwner){
-            setProgressIndicator(it)
+        mainViewModel.progressDialogLiveData.observe(viewLifecycleOwner) {
+            if (it)
+                binding.progressBarMainDistanceShow.visibility = View.VISIBLE
+            else
+                binding.progressBarMainDistanceShow.visibility = View.INVISIBLE
         }
     }
 

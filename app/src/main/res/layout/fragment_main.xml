@@ -89,4 +89,9 @@
         style="@style/TextView.Main.DistanceShow"
         />
 
+    <ProgressBar
+        android:id="@+id/progressBar_main_distanceShow"
+        style="@style/ProgressBar.Main.DistanceShow"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -131,6 +131,7 @@
         <item name="layout_constraintEnd_toEndOf">@id/guideline_main_rightDistanceCalculate</item>
         <item name="layout_constraintTop_toTopOf">@id/guideline_main_topDistanceCalculate</item>
         <item name="layout_constraintBottom_toBottomOf">@+id/guideline_main_bottomDistanceCalculate</item>
+        <item name="android:stateListAnimator">@null</item>
     </style>
 
     <style name="TextView.Main.DistanceShow" parent="WidthHeight.All.BothZero">

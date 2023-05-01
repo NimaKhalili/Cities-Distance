@@ -63,4 +63,8 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
     //timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
+    //navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:2.5.3"
+    implementation "androidx.navigation:navigation-ui-ktx:2.5.3"
+    implementation "androidx.navigation:navigation-runtime-ktx:2.5.3"
 }

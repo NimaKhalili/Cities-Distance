@@ -65,7 +65,7 @@
 
     //---------------------->activity_main.xml
     <style name="Guideline.Main.BottomNavigationView" parent="Guideline.All.Horizontal">
-        <item name="layout_constraintGuide_percent">0.90</item>
+        <item name="layout_constraintGuide_percent">0.91</item>
     </style>
 
     <style name="FragmentContainer.Main" parent="WidthHeight.All.BothMatchParent">

@@ -52,7 +52,37 @@
         <item name="endIconMode">custom</item>
     </style>
 
+    <style name="BaseBottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemTextAppearanceActive">@style/ActiveItemBottomNavigationTextAppearance</item>
+        <item name="itemIconSize">@dimen/itemIconSize_BaseBottomNavigationView</item>
+        <item name="itemPaddingBottom">@dimen/itemPaddingBottom_BaseBottomNavigationView</item>
+    </style>
+    
+    <style name="ActiveItemBottomNavigationTextAppearance" parent="TextAppearance.MyTheme.Caption">
+        <item name="fontFamily">@font/primary_extra_bold</item>
+        <item name="android:fontFamily">@font/primary_extra_bold</item>
+    </style>
+
     //---------------------->activity_main.xml
+    <style name="Guideline.Main.BottomNavigationView" parent="Guideline.All.Horizontal">
+        <item name="layout_constraintGuide_percent">0.90</item>
+    </style>
+
+    <style name="FragmentContainer.Main" parent="WidthHeight.All.BothMatchParent">
+        <item name="android:name">androidx.navigation.fragment.NavHostFragment</item>
+        <item name="defaultNavHost">true</item>
+        <item name="navGraph">@navigation/nav_graph</item>
+    </style>
+
+    <style name="BottomNavigationView.Main" parent="WidthHeight.All.BothZero">
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintLeft_toLeftOf">parent</item>
+        <item name="layout_constraintRight_toRightOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">@+id/guideline_main_bottomNavigationView</item>
+        <item name="menu">@menu/main_navigation</item>
+    </style>
+
+    //---------------------->fragment_main.xml
     <style name="Guideline.Main.TopBeginning" parent="Guideline.All.Horizontal">
         <item name="layout_constraintGuide_percent">0.07</item>
     </style>

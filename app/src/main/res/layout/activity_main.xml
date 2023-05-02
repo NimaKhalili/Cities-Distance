@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/WidthHeight.All.BothMatchParent"
     tools:context=".feature.main.MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainer"
-        android:name="com.example.citiesdistance.feature.main.MainFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/fragmentContainer_main"
+        style="@style/FragmentContainer.Main"
         tools:layout="@layout/fragment_main" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_main_bottomNavigationView"
+        style="@style/Guideline.Main.BottomNavigationView" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView_main"
+        style="@style/BottomNavigationView.Main" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

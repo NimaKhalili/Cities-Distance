@@ -29,5 +29,6 @@
         <!-- Customize your theme here. -->
         <item name="fontFamily">@font/primary_regular</item>
         <item name="textInputStyle">@style/BaseTextInputLayout</item>
+        <item name="bottomNavigationStyle">@style/BaseBottomNavigationView</item>
     </style>
 </resources>

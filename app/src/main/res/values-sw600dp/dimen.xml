@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    //---------------------->default
+    <dimen name="itemIconSize_BaseBottomNavigationView">42dp</dimen>
+    <dimen name="itemPaddingBottom_BaseBottomNavigationView">15dp</dimen>
+
     //---------------------->type.xml
     <dimen name="textSizeTextAppearance_myTheme_headline1">22sp</dimen>
+    <dimen name="textSizeTextAppearance_myTheme_caption">18sp</dimen>
 
     //---------------------->ic_expand_more.xml
     <dimen name="height_icExpandMore">32dp</dimen>

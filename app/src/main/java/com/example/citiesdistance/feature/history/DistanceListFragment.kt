@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.citiesdistance.common.BaseFragment
-import com.example.citiesdistance.databinding.FragmentHistoryBinding
+import com.example.citiesdistance.databinding.FragmentDistanceListBinding
 
-class HistoryFragment : BaseFragment() {
-    private var _binding: FragmentHistoryBinding? = null
+class DistanceListFragment : BaseFragment() {
+    private var _binding: FragmentDistanceListBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -16,7 +16,7 @@ class HistoryFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentHistoryBinding.inflate(inflater, container, false)
+        _binding = FragmentDistanceListBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }

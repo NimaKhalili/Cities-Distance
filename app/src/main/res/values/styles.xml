@@ -39,17 +39,16 @@
     </style>
 
     <style name="Guideline.All.LeftParent" parent="Guideline.All.Vertical">
-        <item name="layout_constraintGuide_percent">0.92</item>
+        <item name="layout_constraintGuide_percent">0.08</item>
     </style>
 
     <style name="Guideline.All.RightParent" parent="Guideline.All.Vertical">
-        <item name="layout_constraintGuide_percent">0.08</item>
+        <item name="layout_constraintGuide_percent">0.92</item>
     </style>
 
     //---------------------->default
     <style name="BaseTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
-        <item name="endIconDrawable">@drawable/ic_expand_more</item>
-        <item name="endIconMode">custom</item>
+        <item name="startIconDrawable">@drawable/ic_expand_more</item>
     </style>
 
     <style name="BaseBottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">

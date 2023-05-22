@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    style="@style/WidthHeight.All.BothMatchParent">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_main_topParent"
@@ -31,7 +30,6 @@
         android:id="@+id/guideline_main_topDestination"
         style="@style/Guideline.Main.TopDestination" />
 
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_main_bottomDestination"
         style="@style/Guideline.Main.BottomDestination" />
@@ -46,11 +44,11 @@
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_main_rightDistanceCalculate"
-        style="@style/Guideline.Main.LeftDistanceCalculate" />
+        style="@style/Guideline.Main.RightDistanceCalculate" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_main_leftDistanceCalculate"
-        style="@style/Guideline.Main.RightDistanceCalculate" />
+        style="@style/Guideline.Main.LeftDistanceCalculate" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_main_topDistanceShow"
@@ -66,7 +64,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditText_main_beginning"
-            style="@style/TextInputEditText.Main.Beginning" />
+            style="@style/TextInputEditText.Main.Beginning"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,12 +84,10 @@
 
     <TextView
         android:id="@+id/textView_main_distanceShow"
-        style="@style/TextView.Main.DistanceShow"
-        />
+        style="@style/TextView.Main.DistanceShow" />
 
     <ProgressBar
         android:id="@+id/progressBar_main_distanceShow"
-        style="@style/ProgressBar.Main.DistanceShow"
-        />
+        style="@style/ProgressBar.Main.DistanceShow" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

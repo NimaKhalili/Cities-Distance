@@ -60,7 +60,7 @@ class MainFragment : BaseFragment() {
     }
 
     private fun prepareTextInputLayoutMainDestination() {
-        binding.textInputLayoutMainDestination.setEndIconOnClickListener {
+        binding.textInputLayoutMainDestination.setStartIconOnClickListener {
             preparePopupMenu(
                 binding.textInputLayoutMainDestination,
                 binding.textInputEditTextMainDestination
@@ -69,7 +69,7 @@ class MainFragment : BaseFragment() {
     }
 
     private fun prepareTextInputLayoutMainBeginning() {
-        binding.textInputLayoutMainBeginning.setEndIconOnClickListener {
+        binding.textInputLayoutMainBeginning.setStartIconOnClickListener {
             preparePopupMenu(
                 binding.textInputLayoutMainBeginning,
                 binding.textInputEditTextMainBeginning

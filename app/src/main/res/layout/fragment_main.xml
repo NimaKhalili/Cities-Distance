@@ -4,19 +4,19 @@
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_main_topParent"
-        style="@style/Guideline.All.TopParent" />
+        style="@style/Guideline.Main.TopParent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_main_bottomParent"
-        style="@style/Guideline.All.BottomParent" />
+        style="@style/Guideline.Main.BottomParent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_main_leftParent"
-        style="@style/Guideline.All.LeftParent" />
+        style="@style/Guideline.Main.LeftParent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_main_rightParent"
-        style="@style/Guideline.All.RightParent" />
+        style="@style/Guideline.Main.RightParent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_main_topBeginning"

@@ -30,22 +30,6 @@
         <item name="android:orientation">vertical</item>
     </style>
 
-    <style name="Guideline.All.TopParent" parent="Guideline.All.Horizontal">
-        <item name="layout_constraintGuide_percent">0.04</item>
-    </style>
-
-    <style name="Guideline.All.BottomParent" parent="Guideline.All.Horizontal">
-        <item name="layout_constraintGuide_percent">0.96</item>
-    </style>
-
-    <style name="Guideline.All.LeftParent" parent="Guideline.All.Vertical">
-        <item name="layout_constraintGuide_percent">0.08</item>
-    </style>
-
-    <style name="Guideline.All.RightParent" parent="Guideline.All.Vertical">
-        <item name="layout_constraintGuide_percent">0.92</item>
-    </style>
-
     //---------------------->default
     <style name="BaseTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <item name="startIconDrawable">@drawable/ic_expand_more</item>
@@ -63,6 +47,22 @@
     </style>
 
     //---------------------->activity_main.xml
+    <style name="Guideline.Main.TopParent" parent="Guideline.All.Horizontal">
+        <item name="layout_constraintGuide_percent">0.04</item>
+    </style>
+
+    <style name="Guideline.Main.BottomParent" parent="Guideline.All.Horizontal">
+        <item name="layout_constraintGuide_percent">0.96</item>
+    </style>
+
+    <style name="Guideline.Main.LeftParent" parent="Guideline.All.Vertical">
+        <item name="layout_constraintGuide_percent">0.08</item>
+    </style>
+
+    <style name="Guideline.Main.RightParent" parent="Guideline.All.Vertical">
+        <item name="layout_constraintGuide_percent">0.92</item>
+    </style>
+
     <style name="Guideline.Main.BottomNavigationView" parent="Guideline.All.Horizontal">
         <item name="layout_constraintGuide_percent">0.91</item>
     </style>

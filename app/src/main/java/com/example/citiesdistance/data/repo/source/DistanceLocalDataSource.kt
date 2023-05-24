@@ -8,7 +8,7 @@ class DistanceLocalDataSource : DistanceDataSource {
         TODO("Not yet implemented")
     }
 
-    override fun saveDistance(beginning: String, destination: String, distance: JsonElement): Single<JsonElement> {
+    override fun sendDistance(beginning: String, destination: String, distance: JsonElement): Single<JsonElement> {
         TODO("Not yet implemented")
     }
 }

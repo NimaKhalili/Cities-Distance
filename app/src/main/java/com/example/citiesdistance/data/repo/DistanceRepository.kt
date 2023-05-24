@@ -7,7 +7,7 @@ interface DistanceRepository {
 
     fun getDistance(mabda: String, maghsad: String): Single<JsonElement>
 
-    fun sendDistanceToServer(
+    fun sendDistance(
         beginning: String,
         destination: String,
         distance: JsonElement

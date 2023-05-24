@@ -28,7 +28,7 @@ class MainViewModel(private val distanceRepository: DistanceRepository) : BaseVi
     }
 
      fun sendDistanceToServer(beginning: String, destination: String, distance: JsonElement){
-        distanceRepository.sendDistanceToServer(beginning, destination, distance)
+        distanceRepository.sendDistance(beginning, destination, distance)
             .asyncNetworkRequest()
             .subscribe(object : BaseSingleObserver<JsonElement>(compositeDisposable){
                 override fun onSuccess(response: JsonElement) {

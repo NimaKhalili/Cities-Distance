@@ -12,6 +12,6 @@ class DistanceRepositoryImpl(
     override fun getDistance(mabda: String, maghsad: String): Single<JsonElement> =
         remoteDataSource.getDistance(mabda, maghsad)
 
-    override fun sendDistanceToServer(beginning: String, destination: String, distance: JsonElement) =
-        remoteDataSource.saveDistance(beginning, destination, distance)
+    override fun sendDistance(beginning: String, destination: String, distance: JsonElement) =
+        remoteDataSource.sendDistance(beginning, destination, distance)
 }

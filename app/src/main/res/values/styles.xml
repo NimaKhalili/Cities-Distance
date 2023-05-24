@@ -267,4 +267,14 @@
     <style name="ConstraintLayout.ItemDistanceList" parent="WidthHeight.All.MatchParentWrapContent">
         <item name="android:background">@drawable/background_item_distance_list</item>
     </style>
+
+    //---------------------->view_loading.xml
+    <style name="FrameLayout.ViewLoading" parent="WidthHeight.All.BothMatchParent">
+        <item name="android:background">?android:colorBackground</item>
+    </style>
+
+    <style name="ProgressBar.ViewLoading" parent="WidthHeight.All.BothWrapContent">
+        <item name="android:layout_gravity">center</item>
+    </style>
+
 </resources>

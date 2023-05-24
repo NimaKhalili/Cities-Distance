@@ -13,11 +13,11 @@
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_itemDistanceList_startParent"
-        style="@style/Guideline.ItemDistanceList.LeftParent" />
+        style="@style/Guideline.ItemDistanceList.StartParent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_itemDistanceList_endParent"
-        style="@style/Guideline.ItemDistanceList.RightParent" />
+        style="@style/Guideline.ItemDistanceList.EndParent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_itemDistanceList_destinationItemsRightSide"

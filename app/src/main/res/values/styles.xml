@@ -214,11 +214,11 @@
         <item name="layout_constraintGuide_percent">0.88</item>
     </style>
 
-    <style name="Guideline.ItemDistanceList.LeftParent" parent="Guideline.All.Vertical">
+    <style name="Guideline.ItemDistanceList.StartParent" parent="Guideline.All.Vertical">
         <item name="layout_constraintGuide_percent">0.03</item>
     </style>
 
-    <style name="Guideline.ItemDistanceList.RightParent" parent="Guideline.All.Vertical">
+    <style name="Guideline.ItemDistanceList.EndParent" parent="Guideline.All.Vertical">
         <item name="layout_constraintGuide_percent">0.97</item>
     </style>
 

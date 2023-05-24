@@ -11,12 +11,12 @@
         style="@style/Guideline.Main.BottomParent" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_main_leftParent"
-        style="@style/Guideline.Main.LeftParent" />
+        android:id="@+id/guideline_main_startParent"
+        style="@style/Guideline.Main.StartParent" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_main_rightParent"
-        style="@style/Guideline.Main.RightParent" />
+        android:id="@+id/guideline_main_endParent"
+        style="@style/Guideline.Main.EndParent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_main_topBeginning"
@@ -43,12 +43,12 @@
         style="@style/Guideline.Main.BottomDistanceCalculate" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_main_rightDistanceCalculate"
-        style="@style/Guideline.Main.RightDistanceCalculate" />
+        android:id="@+id/guideline_main_endDistanceCalculate"
+        style="@style/Guideline.Main.EndDistanceCalculate" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_main_leftDistanceCalculate"
-        style="@style/Guideline.Main.LeftDistanceCalculate" />
+        android:id="@+id/guideline_main_startDistanceCalculate"
+        style="@style/Guideline.Main.StartDistanceCalculate" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_main_topDistanceShow"

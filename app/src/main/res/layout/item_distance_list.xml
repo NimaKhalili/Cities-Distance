@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ConstraintLayout.ItemDistanceList">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_itemDistanceList_topParent"
+        style="@style/Guideline.Main.TopParent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_itemDistanceList_bottomParent"
+        style="@style/Guideline.Main.BottomParent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_itemDistanceList_startParent"
+        style="@style/Guideline.Main.LeftParent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_itemDistanceList_endParent"
+        style="@style/Guideline.Main.RightParent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_itemDistanceList_destinationItemsRightSide"
+        style="@style/Guideline.ItemDistanceList.DestinationItemsRightSide"
+         />
+
+    <TextView
+        android:id="@+id/textView_itemDistanceList_beginningText"
+        style="@style/TextView.ItemDistanceList.BeginningText" />
+
+    <TextView
+        android:id="@+id/textView_itemDistanceList_beginning"
+        style="@style/TextView.ItemDistanceList.Beginning"
+        tools:text="آذربایجان غربی" />
+
+    <TextView
+        android:id="@+id/textView_itemDistanceList_destinationText"
+        style="@style/TextView.ItemDistanceList.DestinationText" />
+
+    <TextView
+        android:id="@+id/textView_itemDistanceList_destination"
+        style="@style/TextView.ItemDistanceList.Destination"
+        tools:text="آذربایجان غربی" />
+
+    <TextView
+        android:id="@+id/textView_itemDistanceList_distance"
+        style="@style/TextView.ItemDistanceList.Distance"
+        tools:text="795 کیلومتر" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

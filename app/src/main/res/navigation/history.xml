@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/historyFragment"
-        android:name="com.example.citiesdistance.feature.history.DistanceListFragment"
+        android:name="com.example.citiesdistance.feature.list.DistanceListFragment"
         android:label="HistoryFragment" />
 </navigation>

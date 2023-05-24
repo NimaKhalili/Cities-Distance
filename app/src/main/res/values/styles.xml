@@ -189,19 +189,19 @@
         <item name="layout_constraintGuide_percent">0.98</item>
     </style>
 
-    <style name="Guideline.DistanceList.LeftParent" parent="Guideline.All.Vertical">
+    <style name="Guideline.DistanceList.StartParent" parent="Guideline.All.Vertical">
         <item name="layout_constraintGuide_percent">0.03</item>
     </style>
 
-    <style name="Guideline.DistanceList.RightParent" parent="Guideline.All.Vertical">
+    <style name="Guideline.DistanceList.EndParent" parent="Guideline.All.Vertical">
         <item name="layout_constraintGuide_percent">0.97</item>
     </style>
 
     <style name="RecyclerView.DistanceList" parent="WidthHeight.All.BothZero">
         <item name="android:paddingBottom">?attr/actionBarSize</item>
         <item name="layout_constraintBottom_toBottomOf">@+id/guideline_distanceList_bottomParent</item>
-        <item name="layout_constraintEnd_toEndOf">@+id/guideline_distanceList_rightParent</item>
-        <item name="layout_constraintStart_toStartOf">@+id/guideline_distanceList_leftParent</item>
+        <item name="layout_constraintEnd_toEndOf">@+id/guideline_distanceList_endParent</item>
+        <item name="layout_constraintStart_toStartOf">@+id/guideline_distanceList_startParent</item>
         <item name="layout_constraintTop_toTopOf">@+id/guideline_distanceList_topParent</item>
     </style>
 

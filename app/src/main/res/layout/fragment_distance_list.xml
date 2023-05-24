@@ -11,12 +11,12 @@
         style="@style/Guideline.DistanceList.BottomParent" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_distanceList_leftParent"
-        style="@style/Guideline.DistanceList.LeftParent" />
+        android:id="@+id/guideline_distanceList_startParent"
+        style="@style/Guideline.DistanceList.StartParent" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_distanceList_rightParent"
-        style="@style/Guideline.DistanceList.RightParent" />
+        android:id="@+id/guideline_distanceList_endParent"
+        style="@style/Guideline.DistanceList.EndParent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_distanceList"

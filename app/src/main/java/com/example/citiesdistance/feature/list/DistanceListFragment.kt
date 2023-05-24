@@ -47,6 +47,11 @@ class DistanceListFragment : BaseFragment() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        distanceListViewModel.refresh()
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

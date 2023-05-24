@@ -11,15 +11,23 @@ import com.example.citiesdistance.data.repo.DistanceListRepository
 class DistanceListViewModel(private val distanceListRepository: DistanceListRepository) :
     BaseViewModel() {
     private val _distanceListLiveData = MutableLiveData<List<Distance>>()
-    val distanceListLiveData : LiveData<List<Distance>>
+    val distanceListLiveData: LiveData<List<Distance>>
         get() = _distanceListLiveData
 
     init {
+        prepareDistanceList()
+    }
+
+    fun refresh() {
+        prepareDistanceList()
+    }
+
+    private fun prepareDistanceList() {
         progressDialogLiveData.value = true
         distanceListRepository.getDistanceList()
             .asyncNetworkRequest()
             .doFinally { progressDialogLiveData.value = false }
-            .subscribe(object : BaseSingleObserver<List<Distance>>(compositeDisposable){
+            .subscribe(object : BaseSingleObserver<List<Distance>>(compositeDisposable) {
                 override fun onSuccess(t: List<Distance>) {
                     _distanceListLiveData.value = t
                 }

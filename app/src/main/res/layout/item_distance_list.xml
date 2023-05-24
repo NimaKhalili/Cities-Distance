@@ -5,19 +5,19 @@
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_itemDistanceList_topParent"
-        style="@style/Guideline.Main.TopParent" />
+        style="@style/Guideline.ItemDistanceList.TopParent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_itemDistanceList_bottomParent"
-        style="@style/Guideline.Main.BottomParent" />
+        style="@style/Guideline.ItemDistanceList.BottomParent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_itemDistanceList_startParent"
-        style="@style/Guideline.Main.LeftParent" />
+        style="@style/Guideline.ItemDistanceList.LeftParent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_itemDistanceList_endParent"
-        style="@style/Guideline.Main.RightParent" />
+        style="@style/Guideline.ItemDistanceList.RightParent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_itemDistanceList_destinationItemsRightSide"

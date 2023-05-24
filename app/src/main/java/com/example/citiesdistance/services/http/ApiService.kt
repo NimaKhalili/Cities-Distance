@@ -1,5 +1,6 @@
 package com.example.citiesdistance.services.http
 
+import com.example.citiesdistance.data.Distance
 import com.google.gson.JsonElement
 import io.reactivex.Single
 import retrofit2.Retrofit
@@ -22,8 +23,10 @@ interface ApiService {
         @Query("beginning") beginning: String,
         @Query("destination") destination: String,
         @Query("distance") distance: Int
-//    ): Single<JsonElement>
     ): Single<JsonElement>
+
+    @GET("http://myhostforever.ir/CitiesDistance/Distance/getDistanceList.php")
+    fun getDistanceList(): Single<List<Distance>>
 }
 
 fun createApiServiceInstance(): ApiService {

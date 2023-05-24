@@ -41,6 +41,10 @@ class DistanceListFragment : BaseFragment() {
                 distanceListAdapter.distanceList = it as ArrayList<Distance>
             }
         }
+
+        distanceListViewModel.progressDialogLiveData.observe(viewLifecycleOwner){
+            setProgressIndicator(it)
+        }
     }
 
     override fun onDestroyView() {

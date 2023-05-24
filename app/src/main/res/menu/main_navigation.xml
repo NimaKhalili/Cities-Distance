@@ -6,9 +6,9 @@
         android:icon="@drawable/ic_gas_station"
         android:title="بزودی"></item>
     <item
-        android:id="@+id/history"
+        android:id="@+id/distance_List"
         android:icon="@drawable/ic_list"
-        android:title="تاریخچه"></item>
+        android:title="لیست مسافت ها"></item>
     <item
         android:id="@+id/home"
         android:icon="@drawable/ic_home"

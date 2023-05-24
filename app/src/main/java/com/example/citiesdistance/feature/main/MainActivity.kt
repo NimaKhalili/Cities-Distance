@@ -30,7 +30,7 @@ class MainActivity : BaseActivity() {
 
         // Setup the ActionBar with navController and 3 top level destinations
         appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.home, R.id.history,  R.id.gas)
+            setOf(R.id.home, R.id.distance_List,  R.id.gas)
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
     }

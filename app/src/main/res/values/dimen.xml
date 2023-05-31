@@ -16,4 +16,13 @@
     <dimen name="height_icExpandMore">24dp</dimen>
     <dimen name="width_icExpandMore">24dp</dimen>
 
+    //---------------------->ic_back.xml
+    <dimen name="height_icBack">24dp</dimen>
+    <dimen name="width_icBack">24dp</dimen>
+
+    //---------------------->view_toolbar.xml
+    <dimen name="marginEndImageView_viewToolbar_backButton">8dp</dimen>
+    <dimen name="marginBottomTextView_viewToolbar_title">5dp</dimen>
+    <dimen name="marginEndTextView_viewToolbar_title">16dp</dimen>
+
 </resources>

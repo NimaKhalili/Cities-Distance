@@ -4,10 +4,24 @@
     style="@style/WidthHeight.All.BothMatchParent"
     tools:context=".feature.main.MainActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout_main"
+        style="@style/AppBarLayout.Main">
+
+        <com.example.view.BaseToolbar
+            android:id="@+id/toolbar_main"
+            style="@style/Toolbar.Main" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainer_main"
         style="@style/FragmentContainer.Main"
         tools:layout="@layout/fragment_main" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_main_topFragmentContainer"
+        style="@style/Guideline.Main.TopFragmentContainer" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_main_bottomNavigationView"

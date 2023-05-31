@@ -225,7 +225,6 @@
     </style>
 
     <style name="RecyclerView.DistanceList" parent="WidthHeight.All.BothZero">
-        <item name="android:paddingBottom">?attr/actionBarSize</item>
         <item name="layout_constraintBottom_toBottomOf">@+id/guideline_distanceList_bottomParent</item>
         <item name="layout_constraintEnd_toEndOf">@+id/guideline_distanceList_endParent</item>
         <item name="layout_constraintStart_toStartOf">@+id/guideline_distanceList_startParent</item>

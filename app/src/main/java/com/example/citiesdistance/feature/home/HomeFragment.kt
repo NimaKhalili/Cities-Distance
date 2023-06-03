@@ -1,4 +1,4 @@
-package com.example.citiesdistance.feature.main
+package com.example.citiesdistance.feature.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,14 +9,14 @@ import android.widget.PopupMenu
 import android.widget.Toast
 import com.example.citiesdistance.R
 import com.example.citiesdistance.common.BaseFragment
-import com.example.citiesdistance.databinding.FragmentMainBinding
+import com.example.citiesdistance.databinding.FragmentHomeBinding
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainFragment : BaseFragment() {
-    private val mainViewModel: MainViewModel by viewModel()
-    private var _binding: FragmentMainBinding? = null
+class HomeFragment : BaseFragment() {
+    private val homeViewModel: HomeViewModel by viewModel()
+    private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private var citiesArrayList: ArrayList<String>? = null
 
@@ -25,7 +25,7 @@ class MainFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentMainBinding.inflate(inflater, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
@@ -41,9 +41,9 @@ class MainFragment : BaseFragment() {
     }
 
     private fun prepareButtonMainDistanceCalculateOnClick() {
-        binding.buttonMainDistanceCalculate.setOnClickListener {
-            val beginning = binding.textInputEditTextMainBeginning.text.toString()
-            val destination = binding.textInputEditTextMainDestination.text.toString()
+        binding.buttonHomeDistanceCalculate.setOnClickListener {
+            val beginning = binding.textInputEditTextHomeBeginning.text.toString()
+            val destination = binding.textInputEditTextHomeDestination.text.toString()
             if (beginning.isNotEmpty() && destination.isNotEmpty()) {
                 getDistanceCalculate(beginning, destination)
             }else{
@@ -54,25 +54,25 @@ class MainFragment : BaseFragment() {
 
     private fun getDistanceCalculate(beginning: String, destination: String) {
         if (beginning != destination)
-            mainViewModel.getDistance(beginning, destination)
+            homeViewModel.getDistance(beginning, destination)
         else
             Toast.makeText(context, "امکان محاسبه دو شهر مشابه وجود ندارد", Toast.LENGTH_SHORT).show()
     }
 
     private fun prepareTextInputLayoutMainDestination() {
-        binding.textInputLayoutMainDestination.setStartIconOnClickListener {
+        binding.textInputLayoutHomeDestination.setStartIconOnClickListener {
             preparePopupMenu(
-                binding.textInputLayoutMainDestination,
-                binding.textInputEditTextMainDestination
+                binding.textInputLayoutHomeDestination,
+                binding.textInputEditTextHomeDestination
             )
         }
     }
 
     private fun prepareTextInputLayoutMainBeginning() {
-        binding.textInputLayoutMainBeginning.setStartIconOnClickListener {
+        binding.textInputLayoutHomeBeginning.setStartIconOnClickListener {
             preparePopupMenu(
-                binding.textInputLayoutMainBeginning,
-                binding.textInputEditTextMainBeginning
+                binding.textInputLayoutHomeBeginning,
+                binding.textInputEditTextHomeBeginning
             )
         }
     }
@@ -91,15 +91,15 @@ class MainFragment : BaseFragment() {
     }
 
     private fun prepareMainViewModel() {
-        mainViewModel.distanceLiveData.observe(viewLifecycleOwner) {
-            binding.textViewMainDistanceShow.text = "$it کیلومتر"
+        homeViewModel.distanceLiveData.observe(viewLifecycleOwner) {
+            binding.textViewHomeDistanceShow.text = "$it کیلومتر"
         }
 
-        mainViewModel.progressDialogLiveData.observe(viewLifecycleOwner) {
+        homeViewModel.progressDialogLiveData.observe(viewLifecycleOwner) {
             if (it)
-                binding.progressBarMainDistanceShow.visibility = View.VISIBLE
+                binding.progressBarHomeDistanceShow.visibility = View.VISIBLE
             else
-                binding.progressBarMainDistanceShow.visibility = View.INVISIBLE
+                binding.progressBarHomeDistanceShow.visibility = View.INVISIBLE
         }
     }
 

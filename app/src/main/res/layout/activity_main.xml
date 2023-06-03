@@ -17,7 +17,7 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainer_main"
         style="@style/FragmentContainer.Main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_home" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_main_topFragmentContainer"

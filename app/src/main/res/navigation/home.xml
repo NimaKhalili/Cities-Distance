@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.citiesdistance.feature.main.MainFragment"
+        android:name="com.example.citiesdistance.feature.home.HomeFragment"
         android:label="MainFragment" />
 </navigation>

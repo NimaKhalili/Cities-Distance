@@ -1,4 +1,4 @@
-package com.example.citiesdistance.feature.main
+package com.example.citiesdistance.feature.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,7 +9,7 @@ import com.example.citiesdistance.data.repo.DistanceRepository
 import com.google.gson.JsonElement
 import timber.log.Timber
 
-class MainViewModel(private val distanceRepository: DistanceRepository) : BaseViewModel() {
+class HomeViewModel(private val distanceRepository: DistanceRepository) : BaseViewModel() {
     private val _distanceLiveData = MutableLiveData<JsonElement>()
     val distanceLiveData:LiveData<JsonElement>
         get() = _distanceLiveData

@@ -60,14 +60,6 @@
         <item name="layout_constraintGuide_percent">0.96</item>
     </style>
 
-    <style name="Guideline.Main.StartParent" parent="Guideline.All.Vertical">
-        <item name="layout_constraintGuide_percent">0.08</item>
-    </style>
-
-    <style name="Guideline.Main.EndParent" parent="Guideline.All.Vertical">
-        <item name="layout_constraintGuide_percent">0.92</item>
-    </style>
-
     <style name="Guideline.Main.BottomNavigationView" parent="Guideline.All.Horizontal">
         <item name="layout_constraintGuide_percent">0.91</item>
     </style>
@@ -109,6 +101,14 @@
     </style>
 
     //---------------------->fragment_home.xml
+    <style name="Guideline.Home.StartParent" parent="Guideline.All.Vertical">
+        <item name="layout_constraintGuide_percent">0.08</item>
+    </style>
+
+    <style name="Guideline.Home.EndParent" parent="Guideline.All.Vertical">
+        <item name="layout_constraintGuide_percent">0.92</item>
+    </style>
+
     <style name="Guideline.Home.TopBeginning" parent="Guideline.All.Horizontal">
         <item name="layout_constraintGuide_percent">0.07</item>
     </style>

@@ -12,11 +12,11 @@
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_home_startParent"
-        style="@style/Guideline.Main.StartParent" />
+        style="@style/Guideline.Home.StartParent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_home_endParent"
-        style="@style/Guideline.Main.EndParent" />
+        style="@style/Guideline.Home.EndParent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_home_topBeginning"

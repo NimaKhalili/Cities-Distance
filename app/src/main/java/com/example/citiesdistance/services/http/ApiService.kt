@@ -1,6 +1,7 @@
 package com.example.citiesdistance.services.http
 
 import com.example.citiesdistance.data.Distance
+import com.example.citiesdistance.data.DistanceListCount
 import com.google.gson.JsonElement
 import io.reactivex.Single
 import retrofit2.Retrofit
@@ -27,6 +28,9 @@ interface ApiService {
 
     @GET("http://myhostforever.ir/CitiesDistance/Distance/getDistanceList.php")
     fun getDistanceList(): Single<List<Distance>>
+
+    @GET("https://myhostforever.ir/CitiesDistance/Distance/getDistanceListCount.php/")
+    fun getDistanceCount(): Single<DistanceListCount>
 }
 
 fun createApiServiceInstance(): ApiService {

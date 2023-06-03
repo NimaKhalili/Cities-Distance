@@ -5,8 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import com.example.citiesdistance.common.BaseSingleObserver
 import com.example.citiesdistance.common.BaseViewModel
 import com.example.citiesdistance.common.asyncNetworkRequest
+import com.example.citiesdistance.data.DistanceListCount
 import com.example.citiesdistance.data.repo.DistanceRepository
 import com.google.gson.JsonElement
+import org.greenrobot.eventbus.EventBus
 import timber.log.Timber
 
 class HomeViewModel(private val distanceRepository: DistanceRepository) : BaseViewModel() {
@@ -23,11 +25,21 @@ class HomeViewModel(private val distanceRepository: DistanceRepository) : BaseVi
                 override fun onSuccess(t: JsonElement) {
                     _distanceLiveData.value = t
                     sendDistanceToServer(beginning, destination, t)
+                    refreshBadgeCount()
                 }
             })
     }
 
-     fun sendDistanceToServer(beginning: String, destination: String, distance: JsonElement){
+    private fun refreshBadgeCount() {
+        val distanceListCount =
+            EventBus.getDefault().getStickyEvent(DistanceListCount::class.java)
+        distanceListCount?.let {
+            it.count += 1
+            EventBus.getDefault().postSticky(it)
+        }
+    }
+
+    private fun sendDistanceToServer(beginning: String, destination: String, distance: JsonElement){
         distanceRepository.sendDistance(beginning, destination, distance)
             .asyncNetworkRequest()
             .subscribe(object : BaseSingleObserver<JsonElement>(compositeDisposable){

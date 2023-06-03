@@ -11,6 +11,7 @@ import com.example.citiesdistance.data.repo.source.DistanceLocalDataSource
 import com.example.citiesdistance.data.repo.source.DistanceRemoteDataSource
 import com.example.citiesdistance.feature.list.DistanceListViewModel
 import com.example.citiesdistance.feature.home.HomeViewModel
+import com.example.citiesdistance.feature.main.MainViewModel
 import com.example.citiesdistance.services.http.ApiService
 import com.example.citiesdistance.services.http.createApiServiceInstance
 import org.koin.android.ext.koin.androidContext
@@ -28,6 +29,7 @@ class App : Application() {
             single<ApiService> { createApiServiceInstance() }
             factory<DistanceRepository> { DistanceRepositoryImpl(DistanceRemoteDataSource(get()), DistanceLocalDataSource()) }
             factory<DistanceListRepository> { DistanceListRepositoryImpl(DistanceListRemoteDataSource(get()), DistanceListLocalDataSource()) }
+            viewModel { MainViewModel(get()) }
             viewModel { HomeViewModel(get()) }
             viewModel { DistanceListViewModel(get()) }
         }

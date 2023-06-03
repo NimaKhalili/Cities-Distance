@@ -9,16 +9,26 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.citiesdistance.R
 import com.example.citiesdistance.common.BaseActivity
+import com.example.citiesdistance.data.DistanceListCount
+import com.google.android.material.badge.BadgeDrawable
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.color.MaterialColors
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
+import com.google.android.material.R.attr
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseActivity() {
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var bottomNavigationView:BottomNavigationView
+    private val viewModel:MainViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar_main))
+        bottomNavigationView = findViewById(R.id.bottomNavigationView_main)
 
         val navHostFragment = supportFragmentManager.findFragmentById(
             R.id.fragmentContainer_main
@@ -38,5 +48,19 @@ class MainActivity : BaseActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp(appBarConfiguration)
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onDistanceListCountChangeEvent(distanceListCount: DistanceListCount) {
+        val badge = bottomNavigationView.getOrCreateBadge(R.id.distance_List)
+        badge.badgeGravity = BadgeDrawable.BOTTOM_END
+        badge.backgroundColor = MaterialColors.getColor(bottomNavigationView, attr.colorPrimary)
+        badge.number = distanceListCount.count
+        badge.isVisible = distanceListCount.count > 0
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getDistanceListCount()
     }
 }

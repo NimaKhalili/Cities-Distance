@@ -1,6 +1,7 @@
 package com.example.citiesdistance.common
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.citiesdistance.R
 import io.reactivex.disposables.CompositeDisposable
+import org.greenrobot.eventbus.EventBus
 
 abstract class BaseFragment : Fragment(), BaseView {
     override val rootView: ConstraintLayout?
@@ -38,6 +40,17 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
 
     override val viewContext: Context?
         get() = this
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        EventBus.getDefault().register(this)
+    }
+
+    override fun onDestroy() {
+        EventBus.getDefault().unregister(this)
+        super.onDestroy()
+
+    }
 }
 
 interface BaseView {

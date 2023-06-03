@@ -89,7 +89,7 @@
     <style name="Toolbar.Main" parent="WidthHeight.All.MatchParentWrapContent">
         <item name="android:layoutDirection">rtl</item>
         <item name="bs_title">صسافت بین شهرها</item>
-        <item name="bs_backButtonVisibility">visible</item>
+        <item name="bs_backButtonVisibility">gone</item>
     </style>
 
     <style name="BottomNavigationView.Main" parent="WidthHeight.All.BothZero">

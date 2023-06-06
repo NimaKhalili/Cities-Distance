@@ -10,25 +10,26 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.citiesdistance.R
 import com.example.citiesdistance.common.BaseActivity
 import com.example.citiesdistance.data.DistanceListCount
+import com.example.citiesdistance.databinding.ActivityMainBinding
+import com.google.android.material.R.attr
 import com.google.android.material.badge.BadgeDrawable
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.color.MaterialColors
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
-import com.google.android.material.R.attr
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseActivity() {
+    private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var bottomNavigationView:BottomNavigationView
-    private val viewModel:MainViewModel by viewModel()
+    private val viewModel: MainViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setSupportActionBar(findViewById(R.id.toolbar_main))
-        bottomNavigationView = findViewById(R.id.bottomNavigationView_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        setSupportActionBar(binding.toolbarMain)
 
         val navHostFragment = supportFragmentManager.findFragmentById(
             R.id.fragmentContainer_main
@@ -36,12 +37,12 @@ class MainActivity : BaseActivity() {
         navController = navHostFragment.navController
 
         // Setup the bottom navigation view with navController
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView_main)
+        val bottomNavigationView = binding.bottomNavigationViewMain
         bottomNavigationView.setupWithNavController(navController)
 
         // Setup the ActionBar with navController and 3 top level destinations
         appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.home, R.id.distance_List,  R.id.gas)
+            setOf(R.id.home, R.id.distance_List, R.id.gas)
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
@@ -52,9 +53,9 @@ class MainActivity : BaseActivity() {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onDistanceListCountChangeEvent(distanceListCount: DistanceListCount) {
-        val badge = bottomNavigationView.getOrCreateBadge(R.id.distance_List)
+        val badge = binding.bottomNavigationViewMain.getOrCreateBadge(R.id.distance_List)
         badge.badgeGravity = BadgeDrawable.BOTTOM_END
-        badge.backgroundColor = MaterialColors.getColor(bottomNavigationView, attr.colorPrimary)
+        badge.backgroundColor = MaterialColors.getColor(binding.bottomNavigationViewMain, attr.colorPrimary)
         badge.number = distanceListCount.count
         badge.isVisible = distanceListCount.count > 0
     }

@@ -4,8 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.citiesdistance.common.BaseSingleObserver
 import com.example.citiesdistance.common.BaseViewModel
+import com.example.citiesdistance.common.Event
 import com.example.citiesdistance.common.asyncNetworkRequest
 import com.example.citiesdistance.data.Distance
+import com.example.citiesdistance.data.MessageResponse
 import com.example.citiesdistance.data.repo.DistanceListRepository
 
 class DistanceListViewModel(private val distanceListRepository: DistanceListRepository) :
@@ -30,6 +32,23 @@ class DistanceListViewModel(private val distanceListRepository: DistanceListRepo
             .subscribe(object : BaseSingleObserver<List<Distance>>(compositeDisposable) {
                 override fun onSuccess(t: List<Distance>) {
                     _distanceListLiveData.value = t
+                }
+            })
+    }
+
+    fun deleteDistance(distanceId: Int) {
+        progressDialogLiveData.value = true
+        distanceListRepository.deleteDistance(distanceId)
+            .asyncNetworkRequest()
+            .doFinally { progressDialogLiveData.value = false }
+            .subscribe(object : BaseSingleObserver<MessageResponse>(compositeDisposable) {
+                override fun onSuccess(t: MessageResponse) {
+                    if (t.response == "SUCCESS") {
+                        snackBarLiveData.value = Event("با موفقیت حذف شد")
+                        refresh()
+                    } else if (t.response == "FAILED") {
+                        snackBarLiveData.value = Event("حذف ناموفق بود")
+                    }
                 }
             })
     }

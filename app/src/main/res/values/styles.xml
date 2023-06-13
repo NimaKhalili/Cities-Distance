@@ -229,6 +229,7 @@
         <item name="layout_constraintEnd_toEndOf">@+id/guideline_distanceList_endParent</item>
         <item name="layout_constraintStart_toStartOf">@+id/guideline_distanceList_startParent</item>
         <item name="layout_constraintTop_toTopOf">@+id/guideline_distanceList_topParent</item>
+        <item name="layoutManager">androidx.recyclerview.widget.LinearLayoutManager</item>
     </style>
 
     //---------------------->item_distance_list.xml

@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.citiesdistance.common.BaseFragment
 import com.example.citiesdistance.data.Distance
 import com.example.citiesdistance.databinding.FragmentDistanceListBinding
@@ -14,8 +12,8 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class DistanceListFragment : BaseFragment() {
     private var _binding: FragmentDistanceListBinding? = null
     private val binding get() = _binding!!
-    private val distanceListViewModel : DistanceListViewModel by viewModel()
-    private val distanceListAdapter = DistanceListAdapter()
+    private val distanceListViewModel: DistanceListViewModel by viewModel()
+    private var adapter: DistanceListAdapter = DistanceListAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,21 +27,34 @@ class DistanceListFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.recyclerViewDistanceList.layoutManager =
-            LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-        binding.recyclerViewDistanceList.adapter = distanceListAdapter
+
+        prepareRecyclerViewItemsListener()
         prepareDistanceListViewModel()
     }
 
-    private fun prepareDistanceListViewModel(){
-        distanceListViewModel.distanceListLiveData.observe(viewLifecycleOwner){
+    private fun prepareDistanceListViewModel() {
+        distanceListViewModel.distanceListLiveData.observe(viewLifecycleOwner) {
             it?.let {
-                distanceListAdapter.distanceList = it as ArrayList<Distance>
+                adapter.submitList(it as ArrayList<Distance>)
+                adapter.submitList(it)
+                binding.recyclerViewDistanceList.adapter = adapter
             }
         }
 
-        distanceListViewModel.progressDialogLiveData.observe(viewLifecycleOwner){
+        distanceListViewModel.progressDialogLiveData.observe(viewLifecycleOwner) {
             setProgressIndicator(it)
+        }
+
+        distanceListViewModel.snackBarLiveData.observe(viewLifecycleOwner) {
+            it.getContentIfNotHandled()?.let { message ->
+                showSnackBar(message)
+            }
+        }
+    }
+
+    private fun prepareRecyclerViewItemsListener() {
+        adapter.onClick = {
+            distanceListViewModel.deleteDistance(it.id)
         }
     }
 

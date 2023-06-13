@@ -10,7 +10,7 @@ import com.example.citiesdistance.databinding.ItemDistanceListBinding
 
 class DistanceListAdapter() :
     ListAdapter<Distance, DistanceListAdapter.MyViewHolder>(MyDiffUtil) {
-    var onClick: ((Distance) -> Unit)? = null
+    var onLongClick: ((Distance) -> Unit)? = null
 
     companion object MyDiffUtil : DiffUtil.ItemCallback<Distance>() {
         override fun areItemsTheSame(oldItem: Distance, newItem: Distance): Boolean =
@@ -46,7 +46,7 @@ class DistanceListAdapter() :
         holder.bind(distance)
 
         holder.itemView.setOnLongClickListener {
-            onClick?.invoke(distance)
+            onLongClick?.invoke(distance)
             return@setOnLongClickListener false
         }
     }

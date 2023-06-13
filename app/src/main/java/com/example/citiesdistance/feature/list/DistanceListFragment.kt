@@ -53,7 +53,7 @@ class DistanceListFragment : BaseFragment() {
     }
 
     private fun prepareRecyclerViewItemsListener() {
-        adapter.onClick = {
+        adapter.onLongClick = {
             distanceListViewModel.deleteDistance(it.id)
         }
     }

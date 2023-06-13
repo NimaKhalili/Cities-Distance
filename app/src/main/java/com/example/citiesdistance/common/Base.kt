@@ -15,7 +15,6 @@ import com.example.citiesdistance.R
 import com.google.android.material.snackbar.Snackbar
 import io.reactivex.disposables.CompositeDisposable
 import org.greenrobot.eventbus.EventBus
-import timber.log.Timber
 
 abstract class BaseFragment : Fragment(), BaseView {
     override val rootView: ConstraintLayout?
@@ -82,7 +81,6 @@ interface BaseView {
 
     fun showSnackBar(message: String, duration: Int = Snackbar.LENGTH_SHORT) {
         rootView?.let {
-            Timber.i(message)
             Snackbar.make(it, message, duration).show()
         }
     }

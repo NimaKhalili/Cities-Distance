@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.citiesdistance.R
 import com.example.citiesdistance.common.BaseFragment
 import com.example.citiesdistance.data.Distance
 import com.example.citiesdistance.databinding.FragmentDistanceListBinding
@@ -28,7 +29,9 @@ class DistanceListFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        prepareSwipeRefreshLayout()
         prepareRecyclerViewItemsListener()
+        prepareSwipeRefreshLayoutListener()
         prepareDistanceListViewModel()
     }
 
@@ -52,15 +55,21 @@ class DistanceListFragment : BaseFragment() {
         }
     }
 
+    private fun prepareSwipeRefreshLayoutListener() {
+        binding.swipeRefreshLayoutDistanceList.setOnRefreshListener {
+            distanceListViewModel.refresh()
+            binding.swipeRefreshLayoutDistanceList.isRefreshing = false
+        }
+    }
+
     private fun prepareRecyclerViewItemsListener() {
         adapter.onLongClick = {
             distanceListViewModel.deleteDistance(it.id)
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        distanceListViewModel.refresh()
+    private fun prepareSwipeRefreshLayout() {
+        binding.swipeRefreshLayoutDistanceList.setColorSchemeResources(R.color.colorPrimary)
     }
 
     override fun onDestroyView() {

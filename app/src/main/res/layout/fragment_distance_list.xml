@@ -18,8 +18,13 @@
         android:id="@+id/guideline_distanceList_endParent"
         style="@style/Guideline.DistanceList.EndParent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_distanceList"
-        style="@style/RecyclerView.DistanceList" />
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout_distanceList"
+        style="@style/WidthHeight.All.BothMatchParent">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_distanceList"
+            style="@style/RecyclerView.DistanceList" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -32,11 +32,11 @@ class DistanceFragment : BaseFragment() {
         prepareSwipeRefreshLayout()
         prepareRecyclerViewItemsListener()
         prepareSwipeRefreshLayoutListener()
-        prepareDistanceListViewModel()
+        prepareDistanceViewModel()
     }
 
-    private fun prepareDistanceListViewModel() {
-        distanceViewModel.distanceListLiveData.observe(viewLifecycleOwner) {
+    private fun prepareDistanceViewModel() {
+        distanceViewModel.distanceLiveData.observe(viewLifecycleOwner) {
             it?.let {
                 adapter.submitList(it as ArrayList<Distance>)
                 adapter.submitList(it)

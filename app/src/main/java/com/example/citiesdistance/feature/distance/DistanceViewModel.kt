@@ -9,14 +9,14 @@ import com.example.citiesdistance.common.asyncNetworkRequest
 import com.example.citiesdistance.data.Distance
 import com.example.citiesdistance.data.DistanceItemCount
 import com.example.citiesdistance.data.MessageResponse
-import com.example.citiesdistance.data.repo.DistanceListRepository
+import com.example.citiesdistance.data.repo.DistanceRepository
 import org.greenrobot.eventbus.EventBus
 
-class DistanceViewModel(private val distanceListRepository: DistanceListRepository) :
+class DistanceViewModel(private val distanceRepository: DistanceRepository) :
     BaseViewModel() {
-    private val _distanceListLiveData = MutableLiveData<List<Distance>>()
-    val distanceListLiveData: LiveData<List<Distance>>
-        get() = _distanceListLiveData
+    private val _distanceLiveData = MutableLiveData<List<Distance>>()
+    val distanceLiveData: LiveData<List<Distance>>
+        get() = _distanceLiveData
 
     init {
         prepareDistanceList()
@@ -28,19 +28,19 @@ class DistanceViewModel(private val distanceListRepository: DistanceListReposito
 
     private fun prepareDistanceList() {
         progressDialogLiveData.value = true
-        distanceListRepository.getDistanceList()
+        distanceRepository.getDistanceList()
             .asyncNetworkRequest()
             .doFinally { progressDialogLiveData.value = false }
             .subscribe(object : BaseSingleObserver<List<Distance>>(compositeDisposable) {
                 override fun onSuccess(t: List<Distance>) {
-                    _distanceListLiveData.value = t
+                    _distanceLiveData.value = t
                 }
             })
     }
 
     fun deleteDistance(distanceId: Int) {
         progressDialogLiveData.value = true
-        distanceListRepository.deleteDistance(distanceId)
+        distanceRepository.deleteDistance(distanceId)
             .asyncNetworkRequest()
             .doFinally { progressDialogLiveData.value = false }
             .subscribe(object : BaseSingleObserver<MessageResponse>(compositeDisposable) {

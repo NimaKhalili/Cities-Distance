@@ -6,7 +6,6 @@ import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
-import android.widget.Toast
 import com.example.citiesdistance.R
 import com.example.citiesdistance.common.BaseFragment
 import com.example.citiesdistance.databinding.FragmentHomeBinding
@@ -47,7 +46,7 @@ class HomeFragment : BaseFragment() {
             if (beginning.isNotEmpty() && destination.isNotEmpty()) {
                 getDistanceCalculate(beginning, destination)
             }else{
-                Toast.makeText(context, "لطفا هر دو گزینه را پر کنید", Toast.LENGTH_SHORT).show()
+                showToast("لطفا هر دو گزینه را پر کنید")
             }
         }
     }
@@ -56,7 +55,7 @@ class HomeFragment : BaseFragment() {
         if (beginning != destination)
             homeViewModel.getDistance(beginning, destination)
         else
-            Toast.makeText(context, "امکان محاسبه دو شهر مشابه وجود ندارد", Toast.LENGTH_SHORT).show()
+            showToast("امکان محاسبه دو شهر مشابه وجود ندارد")
     }
 
     private fun prepareTextInputLayoutMainDestination() {

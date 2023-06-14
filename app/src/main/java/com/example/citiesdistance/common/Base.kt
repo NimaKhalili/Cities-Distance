@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.children
@@ -82,6 +83,12 @@ interface BaseView {
     fun showSnackBar(message: String, duration: Int = Snackbar.LENGTH_SHORT) {
         rootView?.let {
             Snackbar.make(it, message, duration).show()
+        }
+    }
+
+    fun showToast(message:String){
+        rootView?.let {
+            Toast.makeText(it.context, message, Toast.LENGTH_SHORT).show()
         }
     }
 }

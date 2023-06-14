@@ -9,7 +9,7 @@ import com.example.citiesdistance.data.repo.source.DistanceListLocalDataSource
 import com.example.citiesdistance.data.repo.source.DistanceListRemoteDataSource
 import com.example.citiesdistance.data.repo.source.DistanceLocalDataSource
 import com.example.citiesdistance.data.repo.source.DistanceRemoteDataSource
-import com.example.citiesdistance.feature.list.DistanceListViewModel
+import com.example.citiesdistance.feature.distance.DistanceViewModel
 import com.example.citiesdistance.feature.home.HomeViewModel
 import com.example.citiesdistance.feature.main.MainViewModel
 import com.example.citiesdistance.services.http.ApiService
@@ -31,7 +31,7 @@ class App : Application() {
             factory<DistanceListRepository> { DistanceListRepositoryImpl(DistanceListRemoteDataSource(get()), DistanceListLocalDataSource()) }
             viewModel { MainViewModel(get()) }
             viewModel { HomeViewModel(get()) }
-            viewModel { DistanceListViewModel(get()) }
+            viewModel { DistanceViewModel(get()) }
         }
 
         startKoin {

@@ -6,7 +6,7 @@ import com.example.citiesdistance.common.BaseSingleObserver
 import com.example.citiesdistance.common.BaseViewModel
 import com.example.citiesdistance.common.Event
 import com.example.citiesdistance.common.asyncNetworkRequest
-import com.example.citiesdistance.data.DistanceListCount
+import com.example.citiesdistance.data.DistanceItemCount
 import com.example.citiesdistance.data.repo.DistanceRepository
 import com.google.gson.JsonElement
 import org.greenrobot.eventbus.EventBus
@@ -31,9 +31,9 @@ class HomeViewModel(private val distanceRepository: DistanceRepository) : BaseVi
     }
 
     private fun refreshBadgeCount() {
-        val distanceListCount =
-            EventBus.getDefault().getStickyEvent(DistanceListCount::class.java)
-        distanceListCount?.let {
+        val distanceItemCount =
+            EventBus.getDefault().getStickyEvent(DistanceItemCount::class.java)
+        distanceItemCount?.let {
             it.count += 1
             EventBus.getDefault().postSticky(it)
         }

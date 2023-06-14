@@ -3,28 +3,28 @@
     style="@style/WidthHeight.All.BothMatchParent">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_distanceList_topParent"
-        style="@style/Guideline.DistanceList.TopParent" />
+        android:id="@+id/guideline_distance_topParent"
+        style="@style/Guideline.Distance.TopParent" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_distanceList_bottomParent"
-        style="@style/Guideline.DistanceList.BottomParent" />
+        android:id="@+id/guideline_distance_bottomParent"
+        style="@style/Guideline.Distance.BottomParent" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_distanceList_startParent"
-        style="@style/Guideline.DistanceList.StartParent" />
+        android:id="@+id/guideline_distance_startParent"
+        style="@style/Guideline.Distance.StartParent" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_distanceList_endParent"
-        style="@style/Guideline.DistanceList.EndParent" />
+        android:id="@+id/guideline_distance_endParent"
+        style="@style/Guideline.Distance.EndParent" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipeRefreshLayout_distanceList"
+        android:id="@+id/swipeRefreshLayout_distance"
         style="@style/WidthHeight.All.BothMatchParent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView_distanceList"
-            style="@style/RecyclerView.DistanceList" />
+            android:id="@+id/recyclerView_distance"
+            style="@style/RecyclerView.Distance" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

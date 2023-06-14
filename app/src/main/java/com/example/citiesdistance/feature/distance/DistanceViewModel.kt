@@ -1,4 +1,4 @@
-package com.example.citiesdistance.feature.list
+package com.example.citiesdistance.feature.distance
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,12 +7,12 @@ import com.example.citiesdistance.common.BaseViewModel
 import com.example.citiesdistance.common.Event
 import com.example.citiesdistance.common.asyncNetworkRequest
 import com.example.citiesdistance.data.Distance
-import com.example.citiesdistance.data.DistanceListCount
+import com.example.citiesdistance.data.DistanceItemCount
 import com.example.citiesdistance.data.MessageResponse
 import com.example.citiesdistance.data.repo.DistanceListRepository
 import org.greenrobot.eventbus.EventBus
 
-class DistanceListViewModel(private val distanceListRepository: DistanceListRepository) :
+class DistanceViewModel(private val distanceListRepository: DistanceListRepository) :
     BaseViewModel() {
     private val _distanceListLiveData = MutableLiveData<List<Distance>>()
     val distanceListLiveData: LiveData<List<Distance>>
@@ -57,9 +57,9 @@ class DistanceListViewModel(private val distanceListRepository: DistanceListRepo
     }
 
     private fun refreshBadgeCount() {
-        val distanceListCount =
-            EventBus.getDefault().getStickyEvent(DistanceListCount::class.java)
-        distanceListCount?.let {
+        val distanceItemCount =
+            EventBus.getDefault().getStickyEvent(DistanceItemCount::class.java)
+        distanceItemCount?.let {
             it.count -= 1
             EventBus.getDefault().postSticky(it)
         }

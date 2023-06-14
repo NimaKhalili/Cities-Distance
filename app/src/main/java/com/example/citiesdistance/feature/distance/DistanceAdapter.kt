@@ -1,4 +1,4 @@
-package com.example.citiesdistance.feature.list
+package com.example.citiesdistance.feature.distance
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,10 +6,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.citiesdistance.data.Distance
-import com.example.citiesdistance.databinding.ItemDistanceListBinding
+import com.example.citiesdistance.databinding.ItemDistanceBinding
 
-class DistanceListAdapter() :
-    ListAdapter<Distance, DistanceListAdapter.MyViewHolder>(MyDiffUtil) {
+class DistanceAdapter() :
+    ListAdapter<Distance, DistanceAdapter.MyViewHolder>(MyDiffUtil) {
     var onLongClick: ((Distance) -> Unit)? = null
 
     companion object MyDiffUtil : DiffUtil.ItemCallback<Distance>() {
@@ -22,18 +22,18 @@ class DistanceListAdapter() :
 
     }
 
-    inner class MyViewHolder(private val binding: ItemDistanceListBinding) :
+    inner class MyViewHolder(private val binding: ItemDistanceBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(distance: Distance?) {
-            binding.textViewItemDistanceListBeginning.text = distance?.beginning
-            binding.textViewItemDistanceListDestination.text = distance?.destination
-            binding.textViewItemDistanceListDistance.text = "${distance?.distance} کیلومتر"
+            binding.textViewItemDistanceBeginning.text = distance?.beginning
+            binding.textViewItemDistanceDestination.text = distance?.destination
+            binding.textViewItemDistanceDistance.text = "${distance?.distance} کیلومتر"
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
-            ItemDistanceListBinding.inflate(
+            ItemDistanceBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false

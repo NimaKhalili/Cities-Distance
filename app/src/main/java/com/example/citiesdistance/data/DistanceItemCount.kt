@@ -1,5 +1,5 @@
 package com.example.citiesdistance.data
 
-data class DistanceListCount(
+data class DistanceItemCount(
     var count: Int
 )

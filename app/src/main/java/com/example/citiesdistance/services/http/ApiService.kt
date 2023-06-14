@@ -1,7 +1,7 @@
 package com.example.citiesdistance.services.http
 
 import com.example.citiesdistance.data.Distance
-import com.example.citiesdistance.data.DistanceListCount
+import com.example.citiesdistance.data.DistanceItemCount
 import com.example.citiesdistance.data.MessageResponse
 import com.google.gson.JsonElement
 import io.reactivex.Single
@@ -31,7 +31,7 @@ interface ApiService {
     fun getDistanceList(): Single<List<Distance>>
 
     @GET("https://myhostforever.ir/CitiesDistance/Distance/getDistanceListCount.php/")
-    fun getDistanceCount(): Single<DistanceListCount>
+    fun getDistanceCount(): Single<DistanceItemCount>
 
     @POST("https://myhostforever.ir/CitiesDistance/Distance/deleteDistance.php")
     fun deleteDistance(@Query("id") id: Int): Single<MessageResponse>

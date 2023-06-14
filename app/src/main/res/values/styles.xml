@@ -207,92 +207,92 @@
         <item name="android:visibility">invisible</item>
     </style>
 
-    //---------------------->fragment_distance_list.xml
-    <style name="Guideline.DistanceList.TopParent" parent="Guideline.All.Horizontal">
+    //---------------------->fragment_distance.xml
+    <style name="Guideline.Distance.TopParent" parent="Guideline.All.Horizontal">
         <item name="layout_constraintGuide_percent">0.02</item>
     </style>
 
-    <style name="Guideline.DistanceList.BottomParent" parent="Guideline.All.Horizontal">
+    <style name="Guideline.Distance.BottomParent" parent="Guideline.All.Horizontal">
         <item name="layout_constraintGuide_percent">0.98</item>
     </style>
 
-    <style name="Guideline.DistanceList.StartParent" parent="Guideline.All.Vertical">
+    <style name="Guideline.Distance.StartParent" parent="Guideline.All.Vertical">
         <item name="layout_constraintGuide_percent">0.03</item>
     </style>
 
-    <style name="Guideline.DistanceList.EndParent" parent="Guideline.All.Vertical">
+    <style name="Guideline.Distance.EndParent" parent="Guideline.All.Vertical">
         <item name="layout_constraintGuide_percent">0.97</item>
     </style>
 
-    <style name="RecyclerView.DistanceList" parent="WidthHeight.All.BothZero">
-        <item name="layout_constraintBottom_toBottomOf">@+id/guideline_distanceList_bottomParent</item>
-        <item name="layout_constraintEnd_toEndOf">@+id/guideline_distanceList_endParent</item>
-        <item name="layout_constraintStart_toStartOf">@+id/guideline_distanceList_startParent</item>
-        <item name="layout_constraintTop_toTopOf">@+id/guideline_distanceList_topParent</item>
+    <style name="RecyclerView.Distance" parent="WidthHeight.All.BothZero">
+        <item name="layout_constraintBottom_toBottomOf">@+id/guideline_distance_bottomParent</item>
+        <item name="layout_constraintEnd_toEndOf">@+id/guideline_distance_endParent</item>
+        <item name="layout_constraintStart_toStartOf">@+id/guideline_distance_startParent</item>
+        <item name="layout_constraintTop_toTopOf">@+id/guideline_distance_topParent</item>
         <item name="layoutManager">androidx.recyclerview.widget.LinearLayoutManager</item>
     </style>
 
-    //---------------------->item_distance_list.xml
-    <style name="Guideline.ItemDistanceList.TopParent" parent="Guideline.All.Horizontal">
+    //---------------------->item_distance.xml
+    <style name="Guideline.ItemDistance.TopParent" parent="Guideline.All.Horizontal">
         <item name="layout_constraintGuide_percent">0.04</item>
     </style>
 
-    <style name="Guideline.ItemDistanceList.BottomParent" parent="Guideline.All.Horizontal">
+    <style name="Guideline.ItemDistance.BottomParent" parent="Guideline.All.Horizontal">
         <item name="layout_constraintGuide_percent">0.88</item>
     </style>
 
-    <style name="Guideline.ItemDistanceList.StartParent" parent="Guideline.All.Vertical">
+    <style name="Guideline.ItemDistance.StartParent" parent="Guideline.All.Vertical">
         <item name="layout_constraintGuide_percent">0.03</item>
     </style>
 
-    <style name="Guideline.ItemDistanceList.EndParent" parent="Guideline.All.Vertical">
+    <style name="Guideline.ItemDistance.EndParent" parent="Guideline.All.Vertical">
         <item name="layout_constraintGuide_percent">0.97</item>
     </style>
 
-    <style name="Guideline.ItemDistanceList.DestinationItemsRightSide" parent="Guideline.All.Vertical">
+    <style name="Guideline.ItemDistance.DestinationItemsRightSide" parent="Guideline.All.Vertical">
         <item name="layout_constraintGuide_percent">0.58</item>
     </style>
 
-    <style name="TextView.ItemDistanceList.AllText" parent="WidthHeight.All.BothWrapContent">
+    <style name="TextView.ItemDistance.AllText" parent="WidthHeight.All.BothWrapContent">
         <item name="android:textAppearance">?textAppearanceBody2</item>
     </style>
 
-    <style name="TextView.ItemDistanceList.BeginningText" parent="TextView.ItemDistanceList.AllText">
-        <item name="layout_constraintEnd_toEndOf">@+id/guideline_itemDistanceList_endParent</item>
-        <item name="layout_constraintTop_toTopOf">@+id/guideline_itemDistanceList_topParent</item>
+    <style name="TextView.ItemDistance.BeginningText" parent="TextView.ItemDistance.AllText">
+        <item name="layout_constraintEnd_toEndOf">@+id/guideline_itemDistance_endParent</item>
+        <item name="layout_constraintTop_toTopOf">@+id/guideline_itemDistance_topParent</item>
         <item name="android:text">مبدا</item>
     </style>
 
-    <style name="TextView.ItemDistanceList.DestinationText" parent="TextView.ItemDistanceList.AllText">
-        <item name="layout_constraintEnd_toEndOf">@id/guideline_itemDistanceList_destinationItemsRightSide</item>
-        <item name="layout_constraintTop_toTopOf">@+id/guideline_itemDistanceList_topParent</item>
+    <style name="TextView.ItemDistance.DestinationText" parent="TextView.ItemDistance.AllText">
+        <item name="layout_constraintEnd_toEndOf">@id/guideline_itemDistance_destinationItemsRightSide</item>
+        <item name="layout_constraintTop_toTopOf">@+id/guideline_itemDistance_topParent</item>
         <item name="android:text">مقصد</item>
     </style>
 
-    <style name="TextView.ItemDistanceList.All" parent="WidthHeight.All.BothWrapContent">
+    <style name="TextView.ItemDistance.All" parent="WidthHeight.All.BothWrapContent">
         <item name="android:textAppearance">?textAppearanceHeadline6</item>
     </style>
 
-    <style name="TextView.ItemDistanceList.Beginning" parent="TextView.ItemDistanceList.All">
-        <item name="layout_constraintEnd_toEndOf">@+id/guideline_itemDistanceList_endParent</item>
-        <item name="layout_constraintTop_toBottomOf">@+id/textView_itemDistanceList_beginningText</item>
-        <item name="layout_constraintBottom_toBottomOf">@+id/guideline_itemDistanceList_bottomParent</item>
+    <style name="TextView.ItemDistance.Beginning" parent="TextView.ItemDistance.All">
+        <item name="layout_constraintEnd_toEndOf">@+id/guideline_itemDistance_endParent</item>
+        <item name="layout_constraintTop_toBottomOf">@+id/textView_itemDistance_beginningText</item>
+        <item name="layout_constraintBottom_toBottomOf">@+id/guideline_itemDistance_bottomParent</item>
     </style>
 
-    <style name="TextView.ItemDistanceList.Destination" parent="TextView.ItemDistanceList.All">
-        <item name="layout_constraintEnd_toEndOf">@id/guideline_itemDistanceList_destinationItemsRightSide</item>
-        <item name="layout_constraintTop_toBottomOf">@+id/textView_itemDistanceList_destinationText</item>
-        <item name="layout_constraintBottom_toBottomOf">@+id/guideline_itemDistanceList_bottomParent</item>
+    <style name="TextView.ItemDistance.Destination" parent="TextView.ItemDistance.All">
+        <item name="layout_constraintEnd_toEndOf">@id/guideline_itemDistance_destinationItemsRightSide</item>
+        <item name="layout_constraintTop_toBottomOf">@+id/textView_itemDistance_destinationText</item>
+        <item name="layout_constraintBottom_toBottomOf">@+id/guideline_itemDistance_bottomParent</item>
     </style>
 
-    <style name="TextView.ItemDistanceList.Distance" parent="WidthHeight.All.BothWrapContent">
+    <style name="TextView.ItemDistance.Distance" parent="WidthHeight.All.BothWrapContent">
         <item name="android:textAppearance">?textAppearanceBody1</item>
-        <item name="layout_constraintStart_toStartOf">@+id/guideline_itemDistanceList_startParent</item>
-        <item name="layout_constraintBottom_toBottomOf">@+id/guideline_itemDistanceList_bottomParent</item>
+        <item name="layout_constraintStart_toStartOf">@+id/guideline_itemDistance_startParent</item>
+        <item name="layout_constraintBottom_toBottomOf">@+id/guideline_itemDistance_bottomParent</item>
     </style>
 
-    <style name="ConstraintLayout.ItemDistanceList" parent="WidthHeight.All.MatchParentWrapContent">
-        <item name="android:background">@drawable/background_item_distance_list</item>
+    <style name="ConstraintLayout.ItemDistance" parent="WidthHeight.All.MatchParentWrapContent">
+        <item name="android:background">@drawable/background_item_distance</item>
     </style>
 
     //---------------------->view_loading.xml

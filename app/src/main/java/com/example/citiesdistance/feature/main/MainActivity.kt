@@ -9,7 +9,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.citiesdistance.R
 import com.example.citiesdistance.common.BaseActivity
-import com.example.citiesdistance.data.DistanceListCount
+import com.example.citiesdistance.data.DistanceItemCount
 import com.example.citiesdistance.databinding.ActivityMainBinding
 import com.google.android.material.R.attr
 import com.google.android.material.badge.BadgeDrawable
@@ -52,16 +52,16 @@ class MainActivity : BaseActivity() {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onDistanceListCountChangeEvent(distanceListCount: DistanceListCount) {
+    fun onDistanceItemCountChangeEvent(distanceItemCount: DistanceItemCount) {
         val badge = binding.bottomNavigationViewMain.getOrCreateBadge(R.id.distance_List)
         badge.badgeGravity = BadgeDrawable.BOTTOM_END
         badge.backgroundColor = MaterialColors.getColor(binding.bottomNavigationViewMain, attr.colorPrimary)
-        badge.number = distanceListCount.count
-        badge.isVisible = distanceListCount.count > 0
+        badge.number = distanceItemCount.count
+        badge.isVisible = distanceItemCount.count > 0
     }
 
     override fun onResume() {
         super.onResume()
-        viewModel.getDistanceListCount()
+        viewModel.getDistanceItemCount()
     }
 }

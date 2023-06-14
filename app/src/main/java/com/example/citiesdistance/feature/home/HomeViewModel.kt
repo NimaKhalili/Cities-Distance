@@ -4,12 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.citiesdistance.common.BaseSingleObserver
 import com.example.citiesdistance.common.BaseViewModel
+import com.example.citiesdistance.common.Event
 import com.example.citiesdistance.common.asyncNetworkRequest
 import com.example.citiesdistance.data.DistanceListCount
 import com.example.citiesdistance.data.repo.DistanceRepository
 import com.google.gson.JsonElement
 import org.greenrobot.eventbus.EventBus
-import timber.log.Timber
 
 class HomeViewModel(private val distanceRepository: DistanceRepository) : BaseViewModel() {
     private val _distanceLiveData = MutableLiveData<JsonElement>()
@@ -45,9 +45,9 @@ class HomeViewModel(private val distanceRepository: DistanceRepository) : BaseVi
             .subscribe(object : BaseSingleObserver<JsonElement>(compositeDisposable){
                 override fun onSuccess(response: JsonElement) {
                     if (response.asString == "SUCCESS")
-                        Timber.i(response.toString())
+                        snackBarLiveData.value = Event("با موفقیت اضافه شد")
                     else if (response.asString == "FAILED")
-                        Timber.i(response.toString())
+                        snackBarLiveData.value = Event("مشکلی در اضافه کردن پیش آمده")
                 }
             })
     }

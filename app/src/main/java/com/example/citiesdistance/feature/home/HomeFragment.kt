@@ -101,6 +101,12 @@ class HomeFragment : BaseFragment() {
             else
                 binding.progressBarHomeDistanceShow.visibility = View.INVISIBLE
         }
+
+        homeViewModel.snackBarLiveData.observe(viewLifecycleOwner) {
+            it.getContentIfNotHandled()?.let { message ->
+                showSnackBar(message)
+            }
+        }
     }
 
     override fun onDestroyView() {

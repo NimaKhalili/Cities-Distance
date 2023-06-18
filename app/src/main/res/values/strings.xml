@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">مسافت بین شهرها</string>
+    <string name="unknown_error">خطای نامشخص</string>
+    <string name="unknown_server_error">خطای نامشخص سرور</string>
 
     <string-array name="citiesList">
         <item>اراک</item>

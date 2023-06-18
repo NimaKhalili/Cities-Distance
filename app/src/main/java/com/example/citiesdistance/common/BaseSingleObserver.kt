@@ -3,6 +3,7 @@ package com.example.citiesdistance.common
 import io.reactivex.SingleObserver
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import org.greenrobot.eventbus.EventBus
 import timber.log.Timber
 
 abstract class BaseSingleObserver<T>(val compositeDisposable: CompositeDisposable) : SingleObserver<T> {
@@ -11,6 +12,7 @@ abstract class BaseSingleObserver<T>(val compositeDisposable: CompositeDisposabl
     }
 
     override fun onError(e: Throwable) {
+        EventBus.getDefault().post(BaseExceptionMapper.map(e))
         Timber.e(e)
     }
 }

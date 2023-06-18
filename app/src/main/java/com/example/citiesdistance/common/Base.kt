@@ -16,12 +16,24 @@ import com.example.citiesdistance.R
 import com.google.android.material.snackbar.Snackbar
 import io.reactivex.disposables.CompositeDisposable
 import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 abstract class BaseFragment : Fragment(), BaseView {
     override val rootView: ConstraintLayout?
         get() = requireView() as ConstraintLayout
     override val viewContext: Context?
         get() = context
+
+    override fun onStart() {
+        super.onStart()
+        EventBus.getDefault().register(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        EventBus.getDefault().unregister(this)
+    }
 }
 
 abstract class BaseActivity : AppCompatActivity(), BaseView {
@@ -86,9 +98,23 @@ interface BaseView {
         }
     }
 
-    fun showToast(message:String){
+    fun showToast(message: String) {
         rootView?.let {
             Toast.makeText(it.context, message, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun showError(baseException: BaseException) {
+        viewContext?.let {
+            when (baseException.type) {
+                BaseException.Type.SIMPLE -> showSnackBar(
+                    baseException.serverMessage ?: it.getString(baseException.userFriendlyMessage))
+
+                BaseException.Type.AUTH -> showToast(baseException.serverMessage.toString())
+
+                BaseException.Type.DIALOG -> TODO()
+            }
         }
     }
 }

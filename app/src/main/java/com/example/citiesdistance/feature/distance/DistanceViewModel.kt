@@ -38,22 +38,26 @@ class DistanceViewModel(private val distanceRepository: DistanceRepository) :
             })
     }
 
-    fun deleteDistance(distanceId: Int) {
+    fun deleteDistance(distance: Distance) {
         progressDialogLiveData.value = true
-        distanceRepository.deleteDistance(distanceId)
+        distanceRepository.deleteDistance(distance.id)
             .asyncNetworkRequest()
             .doFinally { progressDialogLiveData.value = false }
             .subscribe(object : BaseSingleObserver<MessageResponse>(compositeDisposable) {
                 override fun onSuccess(t: MessageResponse) {
-                    if (t.response == "SUCCESS") {
-                        snackBarLiveData.value = Event("با موفقیت حذف شد")
-                        refresh()
-                        refreshBadgeCount()
-                    } else if (t.response == "FAILED") {
-                        snackBarLiveData.value = Event("حذف ناموفق بود")
-                    }
+                    prepareResponse(t, distance)
                 }
             })
+    }
+
+    private fun prepareResponse(t: MessageResponse, distance: Distance) {
+        if (t.response == "SUCCESS") {
+            refreshLiveData(distance)
+            refreshBadgeCount()
+            snackBarLiveData.value = Event("با موفقیت حذف شد")
+        } else if (t.response == "FAILED") {
+            snackBarLiveData.value = Event("حذف ناموفق بود")
+        }
     }
 
     private fun refreshBadgeCount() {
@@ -62,6 +66,12 @@ class DistanceViewModel(private val distanceRepository: DistanceRepository) :
         distanceItemCount?.let {
             it.count -= 1
             EventBus.getDefault().postSticky(it)
+        }
+    }
+
+    private fun refreshLiveData(distance: Distance) {
+        _distanceLiveData.value = _distanceLiveData.value?.toMutableList()?.apply {
+            remove(distance)
         }
     }
 }

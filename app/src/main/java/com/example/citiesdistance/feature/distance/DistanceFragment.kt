@@ -64,7 +64,7 @@ class DistanceFragment : BaseFragment() {
 
     private fun prepareRecyclerViewItemsListener() {
         adapter.onLongClick = {
-            distanceViewModel.deleteDistance(it.id)
+            distanceViewModel.deleteDistance(it)
         }
     }
 

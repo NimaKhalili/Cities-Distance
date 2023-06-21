@@ -2,6 +2,8 @@
     <string name="app_name">مسافت بین شهرها</string>
     <string name="unknown_error">خطای نامشخص</string>
     <string name="unknown_server_error">خطای نامشخص سرور</string>
+    <string name="distance_default_empty_state">مسافتی ثبت نشده است</string>
+    <string name="distance_finished_empty_state">تمام مسافت ها پاک شده اند</string>
 
     <string-array name="citiesList">
         <item>اراک</item>

@@ -63,7 +63,6 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
     override fun onDestroy() {
         EventBus.getDefault().unregister(this)
         super.onDestroy()
-
     }
 }
 
@@ -90,6 +89,26 @@ interface BaseView {
             it.addView(loadingView1)
         }
         return loadingView1
+    }
+
+    fun showEmptyState(layoutResId: Int): View? {
+        rootView?.let {
+            viewContext?.let { context ->
+                return prepareEmptyState(it, context, layoutResId)
+            }
+        }
+        return null
+    }
+
+    fun prepareEmptyState(it: ConstraintLayout, context: Context, layoutResId: Int): View? {
+        var emptyState =
+            it.findViewById<View>(R.id.constraintLayout_viewDistanceEmptyState_rootView)
+        if (emptyState == null) {
+            emptyState = LayoutInflater.from(context).inflate(layoutResId, it, false)
+            it.addView(emptyState)
+        }
+        emptyState.visibility = View.VISIBLE
+        return emptyState
     }
 
     fun showSnackBar(message: String, duration: Int = Snackbar.LENGTH_SHORT) {

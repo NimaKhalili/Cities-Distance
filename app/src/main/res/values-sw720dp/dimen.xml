@@ -8,6 +8,7 @@
     //---------------------->type.xml
     <dimen name="textSizeTextAppearance_myTheme_headline1">31sp</dimen>
     <dimen name="textSizeTextAppearance_myTheme_caption">27sp</dimen>
+    <dimen name="textSizeTextAppearance_myTheme_headline5">30sp</dimen>
     <dimen name="textSizeTextAppearance_myTheme_headline6">24sp</dimen>
     <dimen name="textSizeTextAppearance_myTheme_body1">20sp</dimen>
     <dimen name="textSizeTextAppearance_myTheme_body2">18sp</dimen>

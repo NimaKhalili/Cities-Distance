@@ -332,4 +332,45 @@
         <item name="layout_constraintBottom_toBottomOf">parent</item>
     </style>
 
+    //---------------------->view_distance_empty_state.xml
+    <style name="Guideline.ViewDistanceEmptyState.TopViewDistanceEmptyState" parent="Guideline.All.Horizontal">
+        <item name="layout_constraintGuide_percent">0.39</item>
+    </style>
+
+    <style name="Guideline.ViewDistanceEmptyState.BottomViewDistanceEmptyState" parent="Guideline.All.Horizontal">
+        <item name="layout_constraintGuide_percent">0.49</item>
+    </style>
+
+    <style name="Guideline.ViewDistanceEmptyState.StartViewDistanceEmptyStateBackToHome" parent="Guideline.All.Vertical">
+        <item name="layout_constraintGuide_percent">0.30</item>
+    </style>
+
+    <style name="Guideline.ViewDistanceEmptyState.EndViewDistanceEmptyStateBackToHome" parent="Guideline.All.Vertical">
+        <item name="layout_constraintGuide_percent">0.70</item>
+    </style>
+
+    <style name="Guideline.ViewDistanceEmptyState.TopViewDistanceEmptyStateBackToHome" parent="Guideline.All.Horizontal">
+        <item name="layout_constraintGuide_percent">0.54</item>
+    </style>
+
+    <style name="Guideline.ViewDistanceEmptyState.BottomViewDistanceEmptyStateBackToHome" parent="Guideline.All.Horizontal">
+        <item name="layout_constraintGuide_percent">0.61</item>
+    </style>
+
+    <style name="TextView.ViewDistanceEmptyState" parent="WidthHeight.All.BothWrapContent">
+        <item name="android:textAppearance">?textAppearanceHeadline5</item>
+        <item name="layout_constraintTop_toTopOf">@+id/guideline_viewDistanceEmptyState_topViewDistanceEmptyState</item>
+        <item name="layout_constraintBottom_toBottomOf">@+id/guideline_viewDistanceEmptyState_bottomViewDistanceEmptyState</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+    </style>
+
+    <style name="Button.ViewDistanceEmptyState.BackToHome" parent="WidthHeight.All.BothWrapContent">
+        <item name="android:textAppearance">?textAppearanceHeadline1</item>
+        <item name="android:text">ثبت مسافت</item>
+        <item name="layout_constraintTop_toTopOf">@+id/guideline_viewDistanceEmptyState_topViewDistanceEmptyStateBackToHome</item>
+        <item name="layout_constraintTop_toBottomOf">@+id/guideline_viewDistanceEmptyState_bottomViewDistanceEmptyStateBackToHome</item>
+        <item name="layout_constraintStart_toStartOf">@+id/guideline_viewDistanceEmptyState_startViewDistanceEmptyStateBackToHome</item>
+        <item name="layout_constraintEnd_toEndOf">@+id/guideline_viewDistanceEmptyState_endViewDistanceEmptyStateBackToHome</item>
+    </style>
 </resources>

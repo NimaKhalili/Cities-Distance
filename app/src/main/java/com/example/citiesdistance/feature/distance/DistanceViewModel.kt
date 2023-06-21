@@ -2,12 +2,14 @@ package com.example.citiesdistance.feature.distance
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.citiesdistance.R
 import com.example.citiesdistance.common.BaseSingleObserver
 import com.example.citiesdistance.common.BaseViewModel
 import com.example.citiesdistance.common.Event
 import com.example.citiesdistance.common.asyncNetworkRequest
 import com.example.citiesdistance.data.Distance
 import com.example.citiesdistance.data.DistanceItemCount
+import com.example.citiesdistance.data.EmptyState
 import com.example.citiesdistance.data.MessageResponse
 import com.example.citiesdistance.data.repo.DistanceRepository
 import org.greenrobot.eventbus.EventBus
@@ -17,6 +19,7 @@ class DistanceViewModel(private val distanceRepository: DistanceRepository) :
     private val _distanceLiveData = MutableLiveData<List<Distance>>()
     val distanceLiveData: LiveData<List<Distance>>
         get() = _distanceLiveData
+    val emptyStateLiveData = MutableLiveData<EmptyState>()
 
     init {
         prepareDistanceList()
@@ -33,9 +36,20 @@ class DistanceViewModel(private val distanceRepository: DistanceRepository) :
             .doFinally { progressDialogLiveData.value = false }
             .subscribe(object : BaseSingleObserver<List<Distance>>(compositeDisposable) {
                 override fun onSuccess(t: List<Distance>) {
-                    _distanceLiveData.value = t
+                    prepareList(t)
                 }
             })
+    }
+
+    private fun prepareList(t: List<Distance>) {
+        if (t.isNotEmpty()) {
+            _distanceLiveData.value = t
+            emptyStateLiveData.postValue(EmptyState(false))
+        } else {
+            _distanceLiveData.value = t
+            emptyStateLiveData.value =
+                EmptyState(true, R.string.distance_default_empty_state, true)
+        }
     }
 
     fun deleteDistance(distance: Distance) {
@@ -54,9 +68,17 @@ class DistanceViewModel(private val distanceRepository: DistanceRepository) :
         if (t.response == "SUCCESS") {
             refreshLiveData(distance)
             refreshBadgeCount()
+            checkListToShowEmptyState()
             snackBarLiveData.value = Event("با موفقیت حذف شد")
         } else if (t.response == "FAILED") {
             snackBarLiveData.value = Event("حذف ناموفق بود")
+        }
+    }
+
+    private fun checkListToShowEmptyState() {
+        _distanceLiveData.value?.let {
+            if (it.isEmpty())
+                emptyStateLiveData.postValue(EmptyState(true, R.string.distance_finished_empty_state))
         }
     }
 

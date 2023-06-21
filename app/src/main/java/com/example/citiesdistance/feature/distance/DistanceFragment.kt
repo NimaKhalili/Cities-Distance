@@ -77,7 +77,8 @@ class DistanceFragment : BaseFragment() {
                 if (it.mustShowCallToActionButton) View.VISIBLE else View.GONE
             view.findViewById<Button>(R.id.button_viewDistanceEmptyState_backToHome)
                 .setOnClickListener {
-                    findNavController().popBackStack(R.id.home, false)
+                    findNavController().popBackStack()
+                    findNavController().navigate(R.id.home)
                 }
         }
     }

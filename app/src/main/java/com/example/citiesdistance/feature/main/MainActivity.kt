@@ -60,6 +60,11 @@ class MainActivity : BaseActivity() {
         badge.isVisible = distanceItemCount.count > 0
     }
 
+    override fun onBackPressed() {
+        super.getOnBackPressedDispatcher()
+        finish()
+    }
+
     override fun onResume() {
         super.onResume()
         viewModel.getDistanceItemCount()

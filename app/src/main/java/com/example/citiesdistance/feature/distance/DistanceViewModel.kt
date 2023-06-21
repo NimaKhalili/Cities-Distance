@@ -19,7 +19,9 @@ class DistanceViewModel(private val distanceRepository: DistanceRepository) :
     private val _distanceLiveData = MutableLiveData<List<Distance>>()
     val distanceLiveData: LiveData<List<Distance>>
         get() = _distanceLiveData
-    val emptyStateLiveData = MutableLiveData<EmptyState>()
+    private val _emptyStateLiveData = MutableLiveData<EmptyState>()
+    val emptyStateLiveData : LiveData<EmptyState>
+        get() = _emptyStateLiveData
 
     init {
         prepareDistanceList()
@@ -44,10 +46,10 @@ class DistanceViewModel(private val distanceRepository: DistanceRepository) :
     private fun prepareList(t: List<Distance>) {
         if (t.isNotEmpty()) {
             _distanceLiveData.value = t
-            emptyStateLiveData.postValue(EmptyState(false))
+            _emptyStateLiveData.postValue(EmptyState(false))
         } else {
             _distanceLiveData.value = t
-            emptyStateLiveData.value =
+            _emptyStateLiveData.value =
                 EmptyState(true, R.string.distance_default_empty_state, true)
         }
     }
@@ -78,7 +80,7 @@ class DistanceViewModel(private val distanceRepository: DistanceRepository) :
     private fun checkListToShowEmptyState() {
         _distanceLiveData.value?.let {
             if (it.isEmpty())
-                emptyStateLiveData.postValue(EmptyState(true, R.string.distance_finished_empty_state))
+                _emptyStateLiveData.postValue(EmptyState(true, R.string.distance_finished_empty_state))
         }
     }
 

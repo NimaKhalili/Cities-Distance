@@ -15,9 +15,12 @@ import androidx.lifecycle.ViewModel
 import com.example.citiesdistance.R
 import com.google.android.material.snackbar.Snackbar
 import io.reactivex.disposables.CompositeDisposable
+import kotlinx.coroutines.CoroutineExceptionHandler
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
+import org.koin.core.component.getScopeName
+import timber.log.Timber
 
 abstract class BaseFragment : Fragment(), BaseView {
     override val rootView: ConstraintLayout?
@@ -142,6 +145,9 @@ abstract class BaseViewModel : ViewModel() {
     val compositeDisposable = CompositeDisposable()
     val progressDialogLiveData = MutableLiveData<Boolean>()
     val snackBarLiveData = MutableLiveData<Event<String>>()
+    val coroutineExceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
+        Timber.e("CoroutineExceptionHandler : ScopeName -> ${coroutineContext.getScopeName()} : ${throwable.message}")
+    }
 
     override fun onCleared() {
         compositeDisposable.clear()

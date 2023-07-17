@@ -31,7 +31,7 @@ interface ApiService {
     fun getDistanceList(): Single<List<Distance>>
 
     @GET("https://myhostforever.ir/CitiesDistance/Distance/getDistanceListCount.php/")
-    fun getDistanceCount(): Single<DistanceItemCount>
+    suspend fun getDistanceCount(): DistanceItemCount
 
     @POST("https://myhostforever.ir/CitiesDistance/Distance/deleteDistance.php")
     fun deleteDistance(@Query("id") id: Int): Single<MessageResponse>

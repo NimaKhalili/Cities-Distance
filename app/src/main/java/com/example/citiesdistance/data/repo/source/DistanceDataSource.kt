@@ -11,6 +11,6 @@ interface DistanceDataSource {
     fun getDistance(mabda: String, maghsad: String): Single<JsonElement>
     fun sendDistance(beginning: String, destination: String, distance: JsonElement): Single<JsonElement>
     fun getDistanceList(): Single<List<Distance>>
-    fun getDistanceCount(): Single<DistanceItemCount>
+    suspend fun getDistanceCount(): DistanceItemCount
     fun deleteDistance(id: Int): Single<MessageResponse>
 }

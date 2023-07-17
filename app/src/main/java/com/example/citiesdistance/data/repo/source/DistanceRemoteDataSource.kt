@@ -16,7 +16,7 @@ class DistanceRemoteDataSource(val apiService: ApiService) : DistanceDataSource 
 
     override fun getDistanceList(): Single<List<Distance>> = apiService.getDistanceList()
 
-    override fun getDistanceCount(): Single<DistanceItemCount> = apiService.getDistanceCount()
+    override suspend fun getDistanceCount(): DistanceItemCount = apiService.getDistanceCount()
 
     override fun deleteDistance(id: Int): Single<MessageResponse> = apiService.deleteDistance(id)
 }

@@ -20,7 +20,7 @@ class DistanceRepositoryImpl(
 
     override fun getDistanceList(): Single<List<Distance>> = remoteDataSource.getDistanceList()
 
-    override fun getDistanceCount(): Single<DistanceItemCount> = remoteDataSource.getDistanceCount()
+    override suspend fun getDistanceCount(): DistanceItemCount = remoteDataSource.getDistanceCount()
 
     override fun deleteDistance(id: Int): Single<MessageResponse> = remoteDataSource.deleteDistance(id)
 }

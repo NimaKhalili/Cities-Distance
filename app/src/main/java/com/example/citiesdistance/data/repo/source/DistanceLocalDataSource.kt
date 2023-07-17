@@ -19,7 +19,7 @@ class DistanceLocalDataSource : DistanceDataSource {
         TODO("Not yet implemented")
     }
 
-    override fun getDistanceCount(): Single<DistanceItemCount> {
+    override suspend fun getDistanceCount(): DistanceItemCount {
         TODO("Not yet implemented")
     }
 

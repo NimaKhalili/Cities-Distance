@@ -17,6 +17,6 @@ interface DistanceRepository {
     ): Single<JsonElement>
 
     fun getDistanceList(): Single<List<Distance>>
-    fun getDistanceCount(): Single<DistanceItemCount>
+    suspend fun getDistanceCount(): DistanceItemCount
     fun deleteDistance(id: Int): Single<MessageResponse>
 }

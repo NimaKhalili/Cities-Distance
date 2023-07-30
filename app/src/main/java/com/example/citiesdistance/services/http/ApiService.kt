@@ -15,17 +15,17 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET("distance/index.php")
-    fun getDistance(
+    suspend fun getDistance(
         @Query("mabda") mabda: String,
         @Query("maghsad") maghsad: String
-    ): Single<JsonElement>
+    ): JsonElement
 
     @POST("https://myhostforever.ir/CitiesDistance/Distance/saveDistance.php")
-    fun sendDistance(
+    suspend fun sendDistance(
         @Query("beginning") beginning: String,
         @Query("destination") destination: String,
         @Query("distance") distance: Int
-    ): Single<JsonElement>
+    ): JsonElement
 
     @GET("http://myhostforever.ir/CitiesDistance/Distance/getDistanceList.php")
     fun getDistanceList(): Single<List<Distance>>

@@ -52,8 +52,9 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun getDistanceCalculate(beginning: String, destination: String) {
-        if (beginning != destination)
+        if (beginning != destination) {
             homeViewModel.getDistance(beginning, destination)
+        }
         else
             showToast("امکان محاسبه دو شهر مشابه وجود ندارد")
     }

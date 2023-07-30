@@ -7,11 +7,11 @@ import com.google.gson.JsonElement
 import io.reactivex.Single
 
 class DistanceLocalDataSource : DistanceDataSource {
-    override fun getDistance(mabda: String, maghsad: String): Single<JsonElement> {
+    override suspend fun getDistance(mabda: String, maghsad: String): JsonElement {
         TODO("Not yet implemented")
     }
 
-    override fun sendDistance(beginning: String, destination: String, distance: JsonElement): Single<JsonElement> {
+    override suspend fun sendDistance(beginning: String, destination: String, distance: JsonElement): JsonElement {
         TODO("Not yet implemented")
     }
 

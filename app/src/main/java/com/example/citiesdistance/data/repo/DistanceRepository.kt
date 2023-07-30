@@ -8,13 +8,13 @@ import io.reactivex.Single
 
 interface DistanceRepository {
 
-    fun getDistance(mabda: String, maghsad: String): Single<JsonElement>
+    suspend fun getDistance(mabda: String, maghsad: String): JsonElement
 
-    fun sendDistance(
+    suspend fun sendDistance(
         beginning: String,
         destination: String,
         distance: JsonElement
-    ): Single<JsonElement>
+    ): JsonElement
 
     fun getDistanceList(): Single<List<Distance>>
     suspend fun getDistanceCount(): DistanceItemCount

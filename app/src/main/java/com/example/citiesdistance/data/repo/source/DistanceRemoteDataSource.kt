@@ -8,10 +8,10 @@ import com.google.gson.JsonElement
 import io.reactivex.Single
 
 class DistanceRemoteDataSource(val apiService: ApiService) : DistanceDataSource {
-    override fun getDistance(mabda: String, maghsad: String): Single<JsonElement> =
+    override suspend fun getDistance(mabda: String, maghsad: String): JsonElement =
         apiService.getDistance(mabda, maghsad)
 
-    override fun sendDistance(beginning: String, destination: String, distance: JsonElement) =
+    override suspend fun sendDistance(beginning: String, destination: String, distance: JsonElement) =
         apiService.sendDistance(beginning, destination, distance.asInt)
 
     override fun getDistanceList(): Single<List<Distance>> = apiService.getDistanceList()

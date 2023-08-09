@@ -28,7 +28,7 @@ interface ApiService {
     ): JsonElement
 
     @GET("http://myhostforever.ir/CitiesDistance/Distance/getDistanceList.php")
-    fun getDistanceList(): Single<List<Distance>>
+    suspend fun getDistanceList(): List<Distance>
 
     @GET("https://myhostforever.ir/CitiesDistance/Distance/getDistanceListCount.php/")
     suspend fun getDistanceCount(): DistanceItemCount

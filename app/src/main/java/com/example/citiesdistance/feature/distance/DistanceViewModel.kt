@@ -2,6 +2,7 @@ package com.example.citiesdistance.feature.distance
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.example.citiesdistance.R
 import com.example.citiesdistance.common.BaseSingleObserver
 import com.example.citiesdistance.common.BaseViewModel
@@ -12,45 +13,39 @@ import com.example.citiesdistance.data.DistanceItemCount
 import com.example.citiesdistance.data.EmptyState
 import com.example.citiesdistance.data.MessageResponse
 import com.example.citiesdistance.data.repo.DistanceRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.greenrobot.eventbus.EventBus
 
-class DistanceViewModel(private val distanceRepository: DistanceRepository) :
-    BaseViewModel() {
+class DistanceViewModel(private val distanceRepository: DistanceRepository) : BaseViewModel() {
+
+    private val _emptyStateLiveData = MutableLiveData<EmptyState>()
+    val emptyStateLiveData: LiveData<EmptyState>
+        get() = _emptyStateLiveData
     private val _distanceLiveData = MutableLiveData<List<Distance>>()
     val distanceLiveData: LiveData<List<Distance>>
         get() = _distanceLiveData
-    private val _emptyStateLiveData = MutableLiveData<EmptyState>()
-    val emptyStateLiveData : LiveData<EmptyState>
-        get() = _emptyStateLiveData
 
     init {
-        prepareDistanceList()
+        getDistanceList()
     }
 
-    fun refresh() {
-        prepareDistanceList()
+    fun refreshList() {
+        getDistanceList()
     }
 
-    private fun prepareDistanceList() {
-        progressDialogLiveData.value = true
-        distanceRepository.getDistanceList()
-            .asyncNetworkRequest()
-            .doFinally { progressDialogLiveData.value = false }
-            .subscribe(object : BaseSingleObserver<List<Distance>>(compositeDisposable) {
-                override fun onSuccess(t: List<Distance>) {
-                    prepareList(t)
-                }
-            })
-    }
-
-    private fun prepareList(t: List<Distance>) {
-        if (t.isNotEmpty()) {
-            _distanceLiveData.value = t
-            _emptyStateLiveData.value = EmptyState(false)
-        } else {
-            _distanceLiveData.value = t
-            _emptyStateLiveData.value =
-                EmptyState(true, R.string.distance_default_empty_state, true)
+    private fun getDistanceList() {
+        viewModelScope.launch(Dispatchers.Main + coroutineExceptionHandler) {
+            progressDialogLiveData.value = true
+            val distanceList = distanceRepository.getDistanceList()
+            if (distanceList.isNotEmpty()) {
+                _distanceLiveData.value = distanceList
+                _emptyStateLiveData.value = EmptyState(false)
+            } else {
+                _emptyStateLiveData.value =
+                    EmptyState(true, R.string.distance_default_empty_state, true)
+            }
+            progressDialogLiveData.value = false
         }
     }
 

@@ -10,7 +10,7 @@ interface DistanceDataSource {
 
     suspend fun getDistance(mabda: String, maghsad: String): JsonElement
     suspend fun sendDistance(beginning: String, destination: String, distance: JsonElement): JsonElement
-    fun getDistanceList(): Single<List<Distance>>
+    suspend fun getDistanceList(): List<Distance>
     suspend fun getDistanceCount(): DistanceItemCount
     fun deleteDistance(id: Int): Single<MessageResponse>
 }

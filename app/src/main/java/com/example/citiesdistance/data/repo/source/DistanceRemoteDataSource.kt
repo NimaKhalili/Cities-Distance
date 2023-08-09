@@ -14,7 +14,7 @@ class DistanceRemoteDataSource(val apiService: ApiService) : DistanceDataSource 
     override suspend fun sendDistance(beginning: String, destination: String, distance: JsonElement) =
         apiService.sendDistance(beginning, destination, distance.asInt)
 
-    override fun getDistanceList(): Single<List<Distance>> = apiService.getDistanceList()
+    override suspend fun getDistanceList(): List<Distance> = apiService.getDistanceList()
 
     override suspend fun getDistanceCount(): DistanceItemCount = apiService.getDistanceCount()
 

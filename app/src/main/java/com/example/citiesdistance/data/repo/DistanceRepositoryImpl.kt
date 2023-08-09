@@ -18,7 +18,7 @@ class DistanceRepositoryImpl(
     override suspend fun sendDistance(beginning: String, destination: String, distance: JsonElement) =
         remoteDataSource.sendDistance(beginning, destination, distance)
 
-    override fun getDistanceList(): Single<List<Distance>> = remoteDataSource.getDistanceList()
+    override suspend fun getDistanceList(): List<Distance> = remoteDataSource.getDistanceList()
 
     override suspend fun getDistanceCount(): DistanceItemCount = remoteDataSource.getDistanceCount()
 

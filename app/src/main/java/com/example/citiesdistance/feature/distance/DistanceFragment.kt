@@ -85,7 +85,7 @@ class DistanceFragment : BaseFragment() {
 
     private fun prepareSwipeRefreshLayoutListener() {
         binding.swipeRefreshLayoutDistance.setOnRefreshListener {
-            distanceViewModel.refresh()
+            distanceViewModel.refreshList()
             binding.swipeRefreshLayoutDistance.isRefreshing = false
         }
     }

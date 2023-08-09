@@ -4,7 +4,6 @@ import com.example.citiesdistance.data.Distance
 import com.example.citiesdistance.data.DistanceItemCount
 import com.example.citiesdistance.data.MessageResponse
 import com.google.gson.JsonElement
-import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -14,32 +13,32 @@ import retrofit2.http.Query
 
 interface ApiService {
 
-    @GET("distance/index.php")
+    @GET("https://api.codebazan.ir/distance/index.php")
     suspend fun getDistance(
         @Query("mabda") mabda: String,
         @Query("maghsad") maghsad: String
     ): JsonElement
 
-    @POST("https://myhostforever.ir/CitiesDistance/Distance/saveDistance.php")
+    @POST("CitiesDistance/Distance/saveDistance.php")
     suspend fun sendDistance(
         @Query("beginning") beginning: String,
         @Query("destination") destination: String,
         @Query("distance") distance: Int
     ): JsonElement
 
-    @GET("http://myhostforever.ir/CitiesDistance/Distance/getDistanceList.php")
+    @GET("CitiesDistance/Distance/getDistanceList.php")
     suspend fun getDistanceList(): List<Distance>
 
-    @GET("https://myhostforever.ir/CitiesDistance/Distance/getDistanceListCount.php/")
+    @GET("CitiesDistance/Distance/getDistanceListCount.php/")
     suspend fun getDistanceCount(): DistanceItemCount
 
-    @POST("https://myhostforever.ir/CitiesDistance/Distance/deleteDistance.php")
-    fun deleteDistance(@Query("id") id: Int): Single<MessageResponse>
+    @POST("CitiesDistance/Distance/deleteDistance.php")
+    suspend fun deleteDistance(@Query("id") id: Int): MessageResponse
 }
 
 fun createApiServiceInstance(): ApiService {
     val retrofit = Retrofit.Builder()
-        .baseUrl("https://api.codebazan.ir/")
+        .baseUrl("https://myhostforever.ir/")
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())
         .build()

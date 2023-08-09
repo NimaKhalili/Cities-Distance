@@ -4,7 +4,6 @@ import com.example.citiesdistance.data.Distance
 import com.example.citiesdistance.data.DistanceItemCount
 import com.example.citiesdistance.data.MessageResponse
 import com.google.gson.JsonElement
-import io.reactivex.Single
 
 class DistanceLocalDataSource : DistanceDataSource {
     override suspend fun getDistance(mabda: String, maghsad: String): JsonElement {
@@ -23,7 +22,7 @@ class DistanceLocalDataSource : DistanceDataSource {
         TODO("Not yet implemented")
     }
 
-    override fun deleteDistance(id: Int): Single<MessageResponse> {
+    override suspend fun deleteDistance(id: Int): MessageResponse {
         TODO("Not yet implemented")
     }
 }

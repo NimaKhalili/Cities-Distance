@@ -4,7 +4,6 @@ import com.example.citiesdistance.data.Distance
 import com.example.citiesdistance.data.DistanceItemCount
 import com.example.citiesdistance.data.MessageResponse
 import com.google.gson.JsonElement
-import io.reactivex.Single
 
 interface DistanceRepository {
 
@@ -18,5 +17,5 @@ interface DistanceRepository {
 
     suspend fun getDistanceList(): List<Distance>
     suspend fun getDistanceCount(): DistanceItemCount
-    fun deleteDistance(id: Int): Single<MessageResponse>
+    suspend fun deleteDistance(id: Int): MessageResponse
 }

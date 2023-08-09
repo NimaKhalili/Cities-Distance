@@ -5,7 +5,6 @@ import com.example.citiesdistance.data.DistanceItemCount
 import com.example.citiesdistance.data.MessageResponse
 import com.example.citiesdistance.services.http.ApiService
 import com.google.gson.JsonElement
-import io.reactivex.Single
 
 class DistanceRemoteDataSource(val apiService: ApiService) : DistanceDataSource {
     override suspend fun getDistance(mabda: String, maghsad: String): JsonElement =
@@ -18,5 +17,5 @@ class DistanceRemoteDataSource(val apiService: ApiService) : DistanceDataSource 
 
     override suspend fun getDistanceCount(): DistanceItemCount = apiService.getDistanceCount()
 
-    override fun deleteDistance(id: Int): Single<MessageResponse> = apiService.deleteDistance(id)
+    override suspend fun deleteDistance(id: Int): MessageResponse = apiService.deleteDistance(id)
 }

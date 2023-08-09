@@ -4,10 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.citiesdistance.R
-import com.example.citiesdistance.common.BaseSingleObserver
 import com.example.citiesdistance.common.BaseViewModel
 import com.example.citiesdistance.common.Event
-import com.example.citiesdistance.common.asyncNetworkRequest
 import com.example.citiesdistance.data.Distance
 import com.example.citiesdistance.data.DistanceItemCount
 import com.example.citiesdistance.data.EmptyState
@@ -50,15 +48,12 @@ class DistanceViewModel(private val distanceRepository: DistanceRepository) : Ba
     }
 
     fun deleteDistance(distance: Distance) {
-        progressDialogLiveData.value = true
-        distanceRepository.deleteDistance(distance.id)
-            .asyncNetworkRequest()
-            .doFinally { progressDialogLiveData.value = false }
-            .subscribe(object : BaseSingleObserver<MessageResponse>(compositeDisposable) {
-                override fun onSuccess(t: MessageResponse) {
-                    prepareResponse(t, distance)
-                }
-            })
+        viewModelScope.launch(Dispatchers.Main) {
+            progressDialogLiveData.value = true
+            val messageResponse = distanceRepository.deleteDistance(distance.id)
+            prepareResponse(messageResponse, distance)
+            progressDialogLiveData.value = false
+        }
     }
 
     private fun prepareResponse(t: MessageResponse, distance: Distance) {

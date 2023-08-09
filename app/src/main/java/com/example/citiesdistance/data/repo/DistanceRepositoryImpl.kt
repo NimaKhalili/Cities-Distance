@@ -6,7 +6,6 @@ import com.example.citiesdistance.data.MessageResponse
 import com.example.citiesdistance.data.repo.source.DistanceDataSource
 import com.example.citiesdistance.data.repo.source.DistanceLocalDataSource
 import com.google.gson.JsonElement
-import io.reactivex.Single
 
 class DistanceRepositoryImpl(
     val remoteDataSource: DistanceDataSource,
@@ -22,5 +21,5 @@ class DistanceRepositoryImpl(
 
     override suspend fun getDistanceCount(): DistanceItemCount = remoteDataSource.getDistanceCount()
 
-    override fun deleteDistance(id: Int): Single<MessageResponse> = remoteDataSource.deleteDistance(id)
+    override suspend fun deleteDistance(id: Int): MessageResponse = remoteDataSource.deleteDistance(id)
 }
